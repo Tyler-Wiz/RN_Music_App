@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAlbums } from "./firebase-config";
+import { getAlbums } from "../../firebase/firebase-config";
 
 export const AlbumConfig = () => {
   const [isLoading, setIsLoading] = useState(false);

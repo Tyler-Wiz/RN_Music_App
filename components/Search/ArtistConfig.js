@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllSongs } from "./firebase-config";
+import { getAllSongs } from "../../firebase/firebase-config";
 
 export const ArtistConfig = () => {
   const [isLoading, setIsLoading] = useState(false);

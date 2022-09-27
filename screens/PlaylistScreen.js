@@ -1,7 +1,7 @@
 import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 import { PlaylistData } from "../Data/data";
-import { RenderPlayList } from "../components/RenderPlayList";
-import { PlaylistConfig } from "../firebase/PlaylistConfig";
+import { PlaylistConfig } from "../components/Playlist/PlaylistConfig";
+import { RenderPlayList } from "../components/Playlist/components/RenderPlayList";
 
 export const PlaylistScreen = () => {
   const [

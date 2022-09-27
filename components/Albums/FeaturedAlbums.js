@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { AlbumConfig } from "../firebase/AlbumConfig";
+import { AlbumConfig } from "./AlbumConfig";
 import { Description } from "../modules/common/Description";
 
 export const FeaturedAlbums = () => {

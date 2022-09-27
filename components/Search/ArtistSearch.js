@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { ArtistConfig } from "../firebase/ArtistConfig";
-import { Artists } from "../Data/data";
+import { ArtistConfig } from "./ArtistConfig";
+import { Artists } from "../../Data/data";
 import { useNavigation } from "@react-navigation/native";
 
 export const ArtistSearch = () => {

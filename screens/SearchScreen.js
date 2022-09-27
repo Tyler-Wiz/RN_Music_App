@@ -12,7 +12,7 @@ import { SearchInput } from "../modules/common/SearchInput";
 import { MoreIcon } from "../modules/common/MoreIcon";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ArtistSearch } from "../components/ArtistSearch";
-import { ArtistConfig } from "../firebase/ArtistConfig";
+
 
 export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();
