@@ -1,0 +1,58 @@
+import { StyleSheet, Text, View, TextInput } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+export const SearchInput = ({
+  placeholder,
+  keyboardType,
+  value,
+  onUpdateValue,
+  onPressIn,
+  autoCorrect,
+}) => {
+  return (
+    <View>
+      <View style={styles.wrapper}>
+        <Ionicons name="search-outline" size={26} style={styles.icon} />
+        <TextInput
+          placeholder={placeholder}
+          keyboardType={keyboardType}
+          style={styles.input}
+          onChangeText={onUpdateValue}
+          value={value}
+          placeholderTextColor={"white"}
+          onPressIn={onPressIn}
+          autoCorrect={autoCorrect}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    padding: 10,
+    marginVertical: 10,
+  },
+  input: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderColor: "#4c4c4c",
+    borderWidth: 0.5,
+    borderRadius: 8,
+    fontSize: 14,
+    fontFamily: "Poppins400",
+    color: "white",
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
+    backgroundColor: "#4c4c4c",
+  },
+  icon: {
+    position: "absolute",
+    top: 21,
+    left: 20,
+  },
+});

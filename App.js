@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useEffect, useState } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import { MyStack } from "./Navigators/Stack";
+import { StatusBar } from "expo-status-bar";
+import { SongProvider } from "./store/Song-Context";
+import { FeedBack } from "./modules/common/FeedBack";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await Font.loadAsync({
+          Poppins300: require("./assets/fonts/Poppins-Light.ttf"),
+          Poppins400: require("./assets/fonts/Poppins-Regular.ttf"),
+          Poppins500: require("./assets/fonts/Poppins-Medium.ttf"),
+          Poppins600: require("./assets/fonts/Poppins-SemiBold.ttf"),
+          Poppins700: require("./assets/fonts/Poppins-Bold.ttf"),
+        });
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SongProvider>
+      <NavigationContainer onReady={onLayoutRootView}>
+        <StatusBar style="light" />
+        <MyStack />
+        <FeedBack />
+      </NavigationContainer>
+    </SongProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
