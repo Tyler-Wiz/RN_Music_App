@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AlbumConfig } from "./AlbumConfig";
-import { Description } from "../modules/common/Description";
+import { Description } from "../../modules/common/Description";
+import { GlobalStyles } from "../../constants/color";
 
 export const FeaturedAlbums = () => {
   const [featuredAlbums, isLoading] = AlbumConfig();
@@ -60,9 +61,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
-    fontFamily: "Poppins500",
+    fontFamily: "Poppins600",
+    maxWidth: "80%",
   },
   artwork: {
     width: 140,
@@ -70,8 +72,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   track: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins300",
+    fontFamily: "Poppins600",
   },
 });

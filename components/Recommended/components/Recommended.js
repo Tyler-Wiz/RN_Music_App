@@ -10,6 +10,7 @@ import {
 import { RecommendedConfig } from "../RecommendConfig";
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
+import { GlobalStyles } from "../../../constants/color";
 
 export const Recommended = () => {
   const [isLoading, Recommended] = RecommendedConfig();
@@ -57,9 +58,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
-    fontFamily: "Poppins500",
+    fontFamily: "Poppins600",
+    maxWidth: "80%",
   },
   artwork: {
     width: 130,
@@ -67,8 +69,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   track: {
-    color: "white",
-    fontSize: 9,
-    fontFamily: "Poppins300",
+    color: GlobalStyles.colors.secondaryText,
+    fontSize: 11,
+    fontFamily: "Poppins600",
   },
 });

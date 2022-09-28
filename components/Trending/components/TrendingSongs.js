@@ -11,6 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { TrendNewConfig } from "../Trending-Config";
 import { Description } from "../../../modules/common/Description";
+import { GlobalStyles } from "../../../constants/color";
 
 export const TrendingSongs = () => {
   const [isLoading, trending] = TrendNewConfig();
@@ -71,9 +72,9 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 12,
-    fontFamily: "Poppins500",
+    fontFamily: "Poppins600",
   },
   artwork: {
     width: 60,
@@ -81,9 +82,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   track: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins300",
+    fontFamily: "Poppins600",
   },
   icon: {
     marginRight: 2,

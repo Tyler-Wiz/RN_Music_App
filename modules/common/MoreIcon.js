@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
 export const MoreIcon = ({
   youtubeId,
@@ -27,7 +28,11 @@ export const MoreIcon = ({
         });
       }}>
       <View style={styles.viewCount}>
-        <Feather name="more-horizontal" size={24} color="white" />
+        <Feather
+          name="more-horizontal"
+          size={24}
+          color={GlobalStyles.colors.secondaryText}
+        />
       </View>
     </TouchableOpacity>
   );

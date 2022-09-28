@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useContext, useState } from "react";
 import { SongContext } from "../../store/Song-Context";
+import { GlobalStyles } from "../../constants/color";
 
 export const PlaylistNavigation = ({ name, bookmarkedId }) => {
   const [loved, setLoved] = useState(false);
@@ -24,7 +25,12 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
       />
       <Text style={styles.artists}>{name}</Text>
       {bookmarkedId === name ? (
-        <Ionicons name="heart" size={25} color="white" style={styles.icon} />
+        <Ionicons
+          name="heart"
+          size={25}
+          color={GlobalStyles.colors.accentPrimary}
+          style={styles.icon}
+        />
       ) : (
         <View>
           <TouchableOpacity
@@ -36,7 +42,7 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
             <Ionicons
               name={loved ? "heart" : "heart-outline"}
               size={25}
-              color="white"
+              color={GlobalStyles.colors.accentPrimary}
               style={styles.icon}
             />
           </TouchableOpacity>

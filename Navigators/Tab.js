@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { GlobalStyles } from "../constants/color";
 
 const Tab = createBottomTabNavigator();
 import { HomeScreen } from "../screens/HomeScreen";
@@ -21,7 +22,7 @@ export const MyTabs = () => {
             <Text
               style={{
                 fontSize: 10,
-                color: "#7C53D0",
+                color: GlobalStyles.colors.accentPrimary,
                 marginTop: -10,
                 textTransform: "capitalize",
                 fontFamily: "Poppins700",
@@ -52,8 +53,13 @@ export const MyTabs = () => {
             default:
               return;
           }
-
-          return <Ionicons name={iconName} size={iconSize} color="#7C53D0" />;
+          return (
+            <Ionicons
+              name={iconName}
+              size={iconSize}
+              color={GlobalStyles.colors.accentPrimary}
+            />
+          );
         },
       })}>
       <Tab.Screen name={homeName} component={HomeScreen} />

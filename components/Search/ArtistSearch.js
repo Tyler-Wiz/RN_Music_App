@@ -3,6 +3,7 @@ import React from "react";
 import { ArtistConfig } from "./ArtistConfig";
 import { Artists } from "../../Data/data";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
 export const ArtistSearch = () => {
   const [allSongs, wizkid, Burna, Fireboy, Kizz, Asake, Tiwa, Davido, Tems] =
@@ -31,7 +32,11 @@ export const ArtistSearch = () => {
         if (i === 0) {
           return (
             <View key={i}>
-              <RenderList data={wizkid} artist={artist} color="#7C53D0" />
+              <RenderList
+                data={wizkid}
+                artist={artist}
+                color={GlobalStyles.colors.accentPrimary}
+              />
             </View>
           );
         }
@@ -45,7 +50,11 @@ export const ArtistSearch = () => {
         if (i === 2) {
           return (
             <View key={i}>
-              <RenderList data={Fireboy} artist={artist} color="#7C53D0" />
+              <RenderList
+                data={Fireboy}
+                artist={artist}
+                color={GlobalStyles.colors.accentPrimary}
+              />
             </View>
           );
         }
@@ -66,7 +75,11 @@ export const ArtistSearch = () => {
         if (i === 5) {
           return (
             <View key={i}>
-              <RenderList data={Tiwa} artist={artist} color="#7C53D0" />
+              <RenderList
+                data={Tiwa}
+                artist={artist}
+                color={GlobalStyles.colors.accentPrimary}
+              />
             </View>
           );
         }
@@ -80,7 +93,11 @@ export const ArtistSearch = () => {
         if (i === 7) {
           return (
             <View key={i}>
-              <RenderList data={Tems} artist={artist} color="#7C53D0" />
+              <RenderList
+                data={Tems}
+                artist={artist}
+                color={GlobalStyles.colors.accentPrimary}
+              />
             </View>
           );
         }

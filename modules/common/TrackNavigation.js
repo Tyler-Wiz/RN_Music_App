@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { GlobalStyles } from "../../constants/color";
 
 export const TrackNavigation = ({
   youtubeId,
@@ -41,7 +42,11 @@ export const TrackNavigation = ({
           });
         }}>
         <View style={styles.viewCount}>
-          <Feather name="more-horizontal" size={24} color="white" />
+          <Feather
+            name="more-horizontal"
+            size={24}
+            color={GlobalStyles.colors.secondaryText}
+          />
         </View>
       </TouchableOpacity>
     </View>

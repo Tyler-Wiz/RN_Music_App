@@ -9,6 +9,7 @@ import {
 import { ChartConfig } from "../ChartConfig";
 import { ChartDetails } from "./ChartDetails";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../../constants/color";
 
 export const Chart = () => {
   const [featuredChart, isLoading] = ChartConfig();
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   chartSub: {
-    color: "#7C53D0",
+    color: GlobalStyles.colors.accentPrimary,
     fontSize: 16,
     fontFamily: "Poppins700",
     marginVertical: 2,

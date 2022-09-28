@@ -11,8 +11,8 @@ import React, { useState } from "react";
 import { SearchInput } from "../modules/common/SearchInput";
 import { MoreIcon } from "../modules/common/MoreIcon";
 import { MaterialIcons } from "@expo/vector-icons";
-import { ArtistSearch } from "../components/ArtistSearch";
-
+import { ArtistSearch } from "../components/Search/ArtistSearch";
+import { ArtistConfig } from "../components/Search/ArtistConfig";
 
 export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();

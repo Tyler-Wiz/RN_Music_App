@@ -10,6 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
 import { NewReleaseConfig } from "../NewReleaseConfig";
+import { GlobalStyles } from "../../../constants/color";
 
 export const NewRelease = () => {
   const [isLoading, newRelease] = NewReleaseConfig();
@@ -57,9 +58,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
-    fontFamily: "Poppins500",
+    fontFamily: "Poppins600",
   },
   artwork: {
     width: 140,
@@ -67,8 +68,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   track: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins300",
+    fontFamily: "Poppins600",
   },
 });

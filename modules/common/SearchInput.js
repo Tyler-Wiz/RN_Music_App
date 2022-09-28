@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { GlobalStyles } from "../../constants/color";
 
 export const SearchInput = ({
   placeholder,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   input: {
     paddingVertical: 8,
     paddingHorizontal: 15,
-    borderColor: "#4c4c4c",
+    borderColor: GlobalStyles.colors.secondaryText,
     borderWidth: 0.5,
     borderRadius: 8,
     fontSize: 14,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignContent: "center",
-    backgroundColor: "#4c4c4c",
+    backgroundColor: GlobalStyles.colors.secondaryText,
   },
   icon: {
     position: "absolute",
