@@ -34,8 +34,8 @@ export const NewRelease = () => {
                 });
               }}>
               <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
-              <Text style={styles.artist}>{item[0].artistName}</Text>
               <Text style={styles.track}>{item[0].trackName}</Text>
+              <Text style={styles.artist}>{item[0].artistName}</Text>
             </TouchableOpacity>
           </View>
         ))}
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 10,
   },
-  artist: {
+  track: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins600",
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     height: 140,
     marginBottom: 10,
   },
-  track: {
+  artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins600",

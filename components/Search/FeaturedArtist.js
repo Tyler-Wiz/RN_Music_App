@@ -41,21 +41,53 @@ export const FeaturedArtist = () => {
         {Artists.map((artist, i) => {
           switch (i) {
             case 0:
-              return <RenderListItem artist={artist} data={wizkid} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={wizkid} />
+                </View>
+              );
             case 1:
-              return <RenderListItem artist={artist} data={Burna} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Burna} />
+                </View>
+              );
             case 2:
-              return <RenderListItem artist={artist} data={Fireboy} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Fireboy} />
+                </View>
+              );
             case 3:
-              return <RenderListItem artist={artist} data={Kizz} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Kizz} />
+                </View>
+              );
             case 4:
-              return <RenderListItem artist={artist} data={Asake} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Asake} />
+                </View>
+              );
             case 5:
-              return <RenderListItem artist={artist} data={Tiwa} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Tiwa} />
+                </View>
+              );
             case 6:
-              return <RenderListItem artist={artist} data={Davido} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Davido} />
+                </View>
+              );
             case 7:
-              return <RenderListItem artist={artist} data={Tems} />;
+              return (
+                <View key={i}>
+                  <RenderListItem artist={artist} data={Tems} />
+                </View>
+              );
             default:
               return;
           }

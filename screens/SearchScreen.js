@@ -18,11 +18,12 @@ export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();
   const [filterData, setFilterData] = useState([]);
 
-  const RenderList = ({ item }) => {
+  const RenderList = ({ item, i }) => {
     return (
       <View style={styles.trackContainer}>
         <TouchableOpacity
           style={styles.singleTrackContainer}
+          key={i}
           onPress={() => {
             navigation.navigate("Track", {
               artist: item[0].artistName,
@@ -87,7 +88,7 @@ export const SearchScreen = ({ navigation }) => {
           <Text style={styles.artist}>Search By Artists</Text>
           <ArtistSearch />
           {filterData.map((artist, i) => (
-            <RenderList item={artist} />
+            <RenderList item={artist} i={i} />
           ))}
         </View>
       </ScrollView>

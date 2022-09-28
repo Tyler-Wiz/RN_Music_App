@@ -18,7 +18,8 @@ export const ArtistSearch = () => {
             data: data,
             img: artist.imageUrl,
           });
-        }}>
+        }}
+        key={artist.name}>
         <View style={[styles.container, { backgroundColor: color }]}>
           <Text style={styles.artist}>{artist.name}</Text>
         </View>
@@ -31,21 +32,53 @@ export const ArtistSearch = () => {
       {Artists.map((artist, i) => {
         switch (i) {
           case 0:
-            return <RenderList artist={artist} data={wizkid} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={wizkid} />
+              </View>
+            );
           case 1:
-            return <RenderList artist={artist} data={Burna} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Burna} />
+              </View>
+            );
           case 2:
-            return <RenderList artist={artist} data={Fireboy} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Fireboy} />
+              </View>
+            );
           case 3:
-            return <RenderList artist={artist} data={Kizz} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Kizz} />
+              </View>
+            );
           case 4:
-            return <RenderList artist={artist} data={Asake} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Asake} />
+              </View>
+            );
           case 5:
-            return <RenderList artist={artist} data={Tiwa} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Tiwa} />
+              </View>
+            );
           case 6:
-            return <RenderList artist={artist} data={Davido} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Davido} />
+              </View>
+            );
           case 7:
-            return <RenderList artist={artist} data={Tems} />;
+            return (
+              <View key={i}>
+                <RenderList artist={artist} data={Tems} />
+              </View>
+            );
           default:
             return;
         }

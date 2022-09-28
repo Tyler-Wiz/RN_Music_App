@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MoreIcon } from "../../../modules/common/MoreIcon";
+import { GlobalStyles } from "../../../constants/color";
 
 export const ChartDetails = ({ item, position }) => {
   const navigation = useNavigation();
@@ -21,8 +22,8 @@ export const ChartDetails = ({ item, position }) => {
           <Text style={styles.position}>{position}</Text>
           <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.artist}>{item[0].artistName}</Text>
             <Text style={styles.track}>{item[0].trackName}</Text>
+            <Text style={styles.artist}>{item[0].artistName}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   artist: {
-    color: "white",
-    fontSize: 14,
-    fontFamily: "Poppins500",
+    color: GlobalStyles.colors.secondaryText,
+    fontSize: 11,
+    fontFamily: "Poppins600",
   },
   artwork: {
     width: 50,
@@ -65,8 +66,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   track: {
-    color: "white",
-    fontSize: 11,
-    fontFamily: "Poppins300",
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 13,
+    fontFamily: "Poppins600",
   },
 });

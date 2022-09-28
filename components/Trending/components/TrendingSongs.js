@@ -34,8 +34,8 @@ export const TrendingSongs = () => {
           }}>
           <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.artist}>{item[0].artistName}</Text>
             <Text style={styles.track}>{item[0].trackName}</Text>
+            <Text style={styles.artist}>{item[0].artistName}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 5,
   },
-  artist: {
+  track: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 12,
     fontFamily: "Poppins600",
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     height: 60,
     marginRight: 10,
   },
-  track: {
+  artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins600",
