@@ -5,6 +5,7 @@ import { Chart } from "../components/Charts/components/Chart";
 import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
 import { Recommended } from "../components/Recommended/components/Recommended";
 import { Ionicons } from "@expo/vector-icons";
+import { FeaturedArtist } from "../components/Search/FeaturedArtist";
 
 export const HomeScreen = ({ navigation }) => {
   return (
@@ -26,6 +27,7 @@ export const HomeScreen = ({ navigation }) => {
       </View>
       <ScrollView>
         <View style={styles.container}>
+          <FeaturedArtist />
           <TrendingSongs />
           <NewRelease />
           <Chart />
