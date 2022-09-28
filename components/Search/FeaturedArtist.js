@@ -11,6 +11,7 @@ import { ArtistConfig } from "./ArtistConfig";
 import { Artists } from "../../Data/data";
 import { GlobalStyles } from "../../constants/color";
 import { useNavigation } from "@react-navigation/native";
+import { Description } from "../../modules/common/Description";
 
 export const FeaturedArtist = () => {
   const [allSongs, wizkid, Burna, Fireboy, Kizz, Asake, Tiwa, Davido, Tems] =
@@ -34,30 +35,33 @@ export const FeaturedArtist = () => {
   };
 
   return (
-    <ScrollView horizontal>
-      {Artists.map((artist, i) => {
-        switch (i) {
-          case 0:
-            return <RenderListItem artist={artist} data={wizkid} />;
-          case 1:
-            return <RenderListItem artist={artist} data={Burna} />;
-          case 2:
-            return <RenderListItem artist={artist} data={Fireboy} />;
-          case 3:
-            return <RenderListItem artist={artist} data={Kizz} />;
-          case 4:
-            return <RenderListItem artist={artist} data={Asake} />;
-          case 5:
-            return <RenderListItem artist={artist} data={Tiwa} />;
-          case 6:
-            return <RenderListItem artist={artist} data={Davido} />;
-          case 7:
-            return <RenderListItem artist={artist} data={Tems} />;
-          default:
-            return;
-        }
-      })}
-    </ScrollView>
+    <View>
+      <Description title="Trending Artist" size={15} margin={10} />
+      <ScrollView horizontal>
+        {Artists.map((artist, i) => {
+          switch (i) {
+            case 0:
+              return <RenderListItem artist={artist} data={wizkid} />;
+            case 1:
+              return <RenderListItem artist={artist} data={Burna} />;
+            case 2:
+              return <RenderListItem artist={artist} data={Fireboy} />;
+            case 3:
+              return <RenderListItem artist={artist} data={Kizz} />;
+            case 4:
+              return <RenderListItem artist={artist} data={Asake} />;
+            case 5:
+              return <RenderListItem artist={artist} data={Tiwa} />;
+            case 6:
+              return <RenderListItem artist={artist} data={Davido} />;
+            case 7:
+              return <RenderListItem artist={artist} data={Tems} />;
+            default:
+              return;
+          }
+        })}
+      </ScrollView>
+    </View>
   );
 };
 

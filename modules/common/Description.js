@@ -1,4 +1,5 @@
 import { StyleSheet, Text } from "react-native";
+import { GlobalStyles } from "../../constants/color";
 
 export const Description = ({ title, size, align, margin }) => {
   return (
@@ -14,7 +15,7 @@ export const Description = ({ title, size, align, margin }) => {
 
 const styles = StyleSheet.create({
   description: {
-    color: "white",
-    fontFamily: "Poppins500",
+    color: GlobalStyles.colors.primaryText,
+    fontFamily: "Poppins600",
   },
 });

@@ -29,77 +29,25 @@ export const ArtistSearch = () => {
   return (
     <View style={styles.wrapper}>
       {Artists.map((artist, i) => {
-        if (i === 0) {
-          return (
-            <View key={i}>
-              <RenderList
-                data={wizkid}
-                artist={artist}
-                color={GlobalStyles.colors.accentPrimary}
-              />
-            </View>
-          );
-        }
-        if (i === 1) {
-          return (
-            <View key={i}>
-              <RenderList data={Burna} artist={artist} />
-            </View>
-          );
-        }
-        if (i === 2) {
-          return (
-            <View key={i}>
-              <RenderList
-                data={Fireboy}
-                artist={artist}
-                color={GlobalStyles.colors.accentPrimary}
-              />
-            </View>
-          );
-        }
-        if (i === 3) {
-          return (
-            <View key={i}>
-              <RenderList data={Kizz} artist={artist} />
-            </View>
-          );
-        }
-        if (i === 4) {
-          return (
-            <View key={i}>
-              <RenderList data={Asake} artist={artist} />
-            </View>
-          );
-        }
-        if (i === 5) {
-          return (
-            <View key={i}>
-              <RenderList
-                data={Tiwa}
-                artist={artist}
-                color={GlobalStyles.colors.accentPrimary}
-              />
-            </View>
-          );
-        }
-        if (i === 6) {
-          return (
-            <View key={i}>
-              <RenderList data={Davido} artist={artist} />
-            </View>
-          );
-        }
-        if (i === 7) {
-          return (
-            <View key={i}>
-              <RenderList
-                data={Tems}
-                artist={artist}
-                color={GlobalStyles.colors.accentPrimary}
-              />
-            </View>
-          );
+        switch (i) {
+          case 0:
+            return <RenderList artist={artist} data={wizkid} />;
+          case 1:
+            return <RenderList artist={artist} data={Burna} />;
+          case 2:
+            return <RenderList artist={artist} data={Fireboy} />;
+          case 3:
+            return <RenderList artist={artist} data={Kizz} />;
+          case 4:
+            return <RenderList artist={artist} data={Asake} />;
+          case 5:
+            return <RenderList artist={artist} data={Tiwa} />;
+          case 6:
+            return <RenderList artist={artist} data={Davido} />;
+          case 7:
+            return <RenderList artist={artist} data={Tems} />;
+          default:
+            return;
         }
       })}
     </View>

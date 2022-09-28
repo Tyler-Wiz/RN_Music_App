@@ -44,7 +44,7 @@ export const TrendingSongs = () => {
 
   return (
     <View>
-      <Description title="Trending" size={15} margin={10} />
+      <Description title="Most Played" size={15} margin={10} />
       <ScrollView horizontal>
         <FlatList
           data={trending}
