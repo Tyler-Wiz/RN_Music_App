@@ -15,8 +15,8 @@ const tagsStyles = {
   },
   div: { margin: "10px" },
   a: { color: "green" },
-  p: { fontSize: "15px", margin: "2px" },
-  h2: { fontSize: "16px", margin: "10px" },
+  p: { fontSize: "15px", margin: "5px" },
+  h2: { fontSize: "16px", margin: "30px 0" },
 };
 
 const RenderLyrics = ({ lyrics }) => {
