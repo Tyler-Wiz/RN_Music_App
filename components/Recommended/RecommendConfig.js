@@ -21,8 +21,8 @@ export const RecommendedConfig = () => {
   }, []);
 
   const Recommended = allSongs.filter((track) => {
-    if (track[0].category.includes("Recommended")) {
-      return track[0];
+    if (track.category.includes("Recommended")) {
+      return track;
     }
   });
 

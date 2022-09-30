@@ -16,6 +16,7 @@ export const PlaylistScreen = () => {
     Piano,
     office,
     female,
+    Bedroom,
   ] = PlaylistConfig();
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -89,6 +90,13 @@ export const PlaylistScreen = () => {
               return (
                 <View key={i}>
                   <RenderPlayList playlist={playlist} data={female} />
+                </View>
+              );
+            }
+            if (i === 10) {
+              return (
+                <View key={i}>
+                  <RenderPlayList playlist={playlist} data={Bedroom} />
                 </View>
               );
             }

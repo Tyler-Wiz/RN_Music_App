@@ -12,11 +12,12 @@ const tagsStyles = {
     textAlign: "center",
     fontFamily: "Poppins700",
     margin: "10px",
+    fontSize: "16px",
   },
   div: { margin: "10px" },
   a: { color: "green" },
   p: { fontSize: "15px", margin: "5px" },
-  h2: { fontSize: "16px", margin: "30px 0" },
+  h2: { fontSize: "16px", margin: "20px 0" },
 };
 
 const RenderLyrics = ({ lyrics }) => {

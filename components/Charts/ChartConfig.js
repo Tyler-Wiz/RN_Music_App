@@ -21,8 +21,8 @@ export const ChartConfig = () => {
   }, []);
 
   const featuredChart = chart.filter((track) => {
-    if (track[0].tag.includes("featured")) {
-      return track[0];
+    if (track.tag.includes("featured")) {
+      return track;
     }
   });
 

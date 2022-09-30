@@ -99,29 +99,29 @@ export const PlaylistSongsScreen = ({ route }) => {
                     style={styles.singleTrackContainer}
                     onPress={() => {
                       navigation.navigate("Track", {
-                        artist: item[0].artistName,
-                        track: item[0].trackName,
-                        youtubeId: item[0].youtube,
+                        artist: item.artistName,
+                        track: item.trackName,
+                        youtubeId: item.youtube,
                         itemId: item.id,
-                        lyrics: item[0].lyrics,
-                        image: item[0].artwork,
+                        lyrics: item.lyrics,
+                        image: item.artwork,
                       });
                     }}>
                     <Image
-                      source={{ uri: item[0].artwork }}
+                      source={{ uri: item.artwork }}
                       style={styles.artwork}
                     />
                     <View>
-                      <Text style={styles.artist}>{item[0].artistName}</Text>
-                      <Text style={styles.track}>{item[0].trackName}</Text>
+                      <Text style={styles.artist}>{item.artistName}</Text>
+                      <Text style={styles.track}>{item.trackName}</Text>
                     </View>
                   </TouchableOpacity>
                   <MoreIcon
-                    youtubeId={item[0].youtube}
-                    lyrics={item[0].lyrics}
-                    artist={item[0].artistName}
-                    track={item[0].trackName}
-                    image={item[0].artwork}
+                    youtubeId={item.youtube}
+                    lyrics={item.lyrics}
+                    artist={item.artistName}
+                    track={item.trackName}
+                    image={item.artwork}
                   />
                 </View>
               );

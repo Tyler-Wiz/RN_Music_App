@@ -14,7 +14,7 @@ import { Description } from "../../../modules/common/Description";
 import { GlobalStyles } from "../../../constants/color";
 
 export const TrendingSongs = () => {
-  const [isLoading, trending] = TrendNewConfig();
+  const [allSongs, trending] = TrendNewConfig();
   const navigation = useNavigation();
 
   const renderList = ({ item }) => {
@@ -24,18 +24,18 @@ export const TrendingSongs = () => {
           style={styles.singleTrackContainer}
           onPress={() => {
             navigation.navigate("Track", {
-              artist: item[0].artistName,
-              track: item[0].trackName,
-              youtubeId: item[0].youtube,
+              artist: item.artistName,
+              track: item.trackName,
+              youtubeId: item.youtube,
               itemId: item.id,
-              lyrics: item[0].lyrics,
-              image: item[0].artwork,
+              lyrics: item.lyrics,
+              image: item.artwork,
             });
           }}>
-          <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
+          <Image source={{ uri: item.artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.track}>{item[0].trackName}</Text>
-            <Text style={styles.artist}>{item[0].artistName}</Text>
+            <Text style={styles.track}>{item.trackName}</Text>
+            <Text style={styles.artist}>{item.artistName}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -54,7 +54,7 @@ export const TrendingSongs = () => {
           alwaysBounceVertical={false}
         />
       </ScrollView>
-      <ActivityIndicator size="small" animating={isLoading} color="grey" />
+      {/* <ActivityIndicator size="small" animating={isLoading} color="grey" /> */}
     </View>
   );
 };

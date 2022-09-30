@@ -25,17 +25,17 @@ export const Recommended = () => {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate("Track", {
-                  artist: item[0].artistName,
-                  track: item[0].trackName,
-                  youtubeId: item[0].youtube,
+                  artist: item.artistName,
+                  track: item.trackName,
+                  youtubeId: item.youtube,
                   itemId: item.id,
-                  lyrics: item[0].lyrics,
-                  image: item[0].artwork,
+                  lyrics: item.lyrics,
+                  image: item.artwork,
                 });
               }}>
-              <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
-              <Text style={styles.track}>{item[0].trackName}</Text>
-              <Text style={styles.artist}>{item[0].artistName}</Text>
+              <Image source={{ uri: item.artwork }} style={styles.artwork} />
+              <Text style={styles.track}>{item.trackName}</Text>
+              <Text style={styles.artist}>{item.artistName}</Text>
             </TouchableOpacity>
           </View>
         ))}

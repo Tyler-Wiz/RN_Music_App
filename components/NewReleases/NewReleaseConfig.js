@@ -21,8 +21,8 @@ export const NewReleaseConfig = () => {
   }, []);
 
   const newRelease = allSongs.filter((track) => {
-    if (track[0].category.includes("new")) {
-      return track[0];
+    if (track.category.includes("new")) {
+      return track;
     }
   });
 

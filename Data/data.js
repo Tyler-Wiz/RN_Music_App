@@ -69,6 +69,13 @@ export const PlaylistData = [
     artists: "kizz Daniel, Davido, Wizkid",
     updated: "31/12/2020",
   },
+  {
+    id: "01",
+    name: "Bedroom Playlist",
+    imageUrl: require("../assets/Img/Playlist/Workout.webp"),
+    artists: "kizz Daniel, Davido, Wizkid",
+    updated: "31/12/2020",
+  },
 ];
 
 export const Artists = [

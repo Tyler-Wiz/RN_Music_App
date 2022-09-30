@@ -21,10 +21,10 @@ export const TrendNewConfig = () => {
   }, []);
 
   const trending = allSongs.filter((track) => {
-    if (track[0].tag.includes("trending")) {
-      return track[0];
+    if (track.tag.includes("trending")) {
+      return track;
     }
   });
 
-  return [isLoading, trending];
+  return [allSongs, trending];
 };
