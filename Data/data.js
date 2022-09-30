@@ -22,7 +22,7 @@ export const PlaylistData = [
   },
   {
     id: "01",
-    name: "100 hottest 2020 Songs",
+    name: "Bedroom Playlist",
     imageUrl: require("../assets/Img/Playlist/Workout.webp"),
     artists: "kizz Daniel, Davido, Wizkid",
     updated: "31/12/2020",
@@ -65,13 +65,6 @@ export const PlaylistData = [
   {
     id: "01",
     name: "Ladies / Feminine Playlist",
-    imageUrl: require("../assets/Img/Playlist/Workout.webp"),
-    artists: "kizz Daniel, Davido, Wizkid",
-    updated: "31/12/2020",
-  },
-  {
-    id: "01",
-    name: "Bedroom Playlist",
     imageUrl: require("../assets/Img/Playlist/Workout.webp"),
     artists: "kizz Daniel, Davido, Wizkid",
     updated: "31/12/2020",

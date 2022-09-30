@@ -23,82 +23,69 @@ export const PlaylistScreen = () => {
       <ScrollView>
         <View style={styles.container}>
           {PlaylistData.map((playlist, i) => {
-            if (i === 0) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={ChopLife} />
-                </View>
-              );
-            }
-            if (i === 1) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={WorkOut} />
-                </View>
-              );
-            }
-            if (i === 2) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Street} />
-                </View>
-              );
-            }
-            if (i === 3) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={twentyTwenty} />
-                </View>
-              );
-            }
-            if (i === 4) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Drive} />
-                </View>
-              );
-            }
-            if (i === 5) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Hiphop} />
-                </View>
-              );
-            }
-            if (i === 6) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Reggae} />
-                </View>
-              );
-            }
-            if (i === 7) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Piano} />
-                </View>
-              );
-            }
-            if (i === 8) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={office} />
-                </View>
-              );
-            }
-            if (i === 9) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={female} />
-                </View>
-              );
-            }
-            if (i === 10) {
-              return (
-                <View key={i}>
-                  <RenderPlayList playlist={playlist} data={Bedroom} />
-                </View>
-              );
+            switch (i) {
+              case 0:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={ChopLife} />
+                  </View>
+                );
+              case 1:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={WorkOut} />
+                  </View>
+                );
+              case 2:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Street} />
+                  </View>
+                );
+              case 3:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Bedroom} />
+                  </View>
+                );
+              case 4:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Drive} />
+                  </View>
+                );
+              case 5:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Hiphop} />
+                  </View>
+                );
+              case 6:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Reggae} />
+                  </View>
+                );
+              case 7:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={Piano} />
+                  </View>
+                );
+              case 8:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={office} />
+                  </View>
+                );
+              case 9:
+                return (
+                  <View key={i}>
+                    <RenderPlayList playlist={playlist} data={female} />
+                  </View>
+                );
+              default:
+                return;
             }
           })}
         </View>
