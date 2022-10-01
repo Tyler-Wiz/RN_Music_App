@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React from "react";
-import { ArtistConfig } from "./ArtistConfig";
+import { ArtistConfig } from "../../modules/hooks/ArtistConfig";
 import { Artists } from "../../Data/data";
 import { GlobalStyles } from "../../constants/color";
 import { useNavigation } from "@react-navigation/native";

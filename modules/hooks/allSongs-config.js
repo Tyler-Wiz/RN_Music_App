@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllSongs } from "../../firebase/firebase-config";
 
-export const NewReleaseConfig = () => {
+export const allSongsConfig = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [allSongs, setAllSongs] = useState([]);
 
@@ -20,11 +20,5 @@ export const NewReleaseConfig = () => {
     getData();
   }, []);
 
-  const newRelease = allSongs.filter((track) => {
-    if (track.category.includes("new")) {
-      return track;
-    }
-  });
-
-  return [isLoading, newRelease];
+  return [allSongs, isLoading];
 };

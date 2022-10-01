@@ -1,9 +1,8 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { ArtistConfig } from "./ArtistConfig";
+import { ArtistConfig } from "../../modules/hooks/ArtistConfig";
 import { Artists } from "../../Data/data";
 import { useNavigation } from "@react-navigation/native";
-import { GlobalStyles } from "../../constants/color";
 
 export const ArtistSearch = () => {
   const [allSongs, wizkid, Burna, Fireboy, Kizz, Asake, Tiwa, Davido, Tems] =

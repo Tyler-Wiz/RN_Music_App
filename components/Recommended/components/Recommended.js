@@ -7,14 +7,20 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
-import { RecommendedConfig } from "../RecommendConfig";
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
 import { GlobalStyles } from "../../../constants/color";
+import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 
 export const Recommended = () => {
-  const [isLoading, Recommended] = RecommendedConfig();
+  const [allSongs, isLoading] = allSongsConfig();
   const navigation = useNavigation();
+
+  const Recommended = allSongs.filter((track) => {
+    if (track.category.includes("Recommended")) {
+      return track;
+    }
+  });
 
   return (
     <View>

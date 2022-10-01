@@ -26,9 +26,7 @@ export const TrackNavigation = ({
           navigation.goBack();
         }}
       />
-      <Text style={styles.title}>
-        {artist} - {track}
-      </Text>
+      <Text style={styles.title}>{track}</Text>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("book", {

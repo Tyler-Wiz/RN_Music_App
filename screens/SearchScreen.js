@@ -12,7 +12,7 @@ import { SearchInput } from "../modules/common/SearchInput";
 import { MoreIcon } from "../modules/common/MoreIcon";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ArtistSearch } from "../components/Search/ArtistSearch";
-import { ArtistConfig } from "../components/Search/ArtistConfig";
+import { ArtistConfig } from "../modules/hooks/ArtistConfig";
 
 export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();
@@ -36,8 +36,8 @@ export const SearchScreen = ({ navigation }) => {
           }}>
           <Image source={{ uri: item.artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.artist}>{item.artistName}</Text>
             <Text style={styles.track}>{item.trackName}</Text>
+            <Text style={styles.artist}>{item.artistName}</Text>
           </View>
         </TouchableOpacity>
         <MoreIcon
@@ -116,9 +116,8 @@ const styles = StyleSheet.create({
   },
   artist: {
     color: "white",
-    fontSize: 13,
-    fontFamily: "Poppins500",
-    textTransform: "capitalize",
+    fontSize: 11,
+    fontFamily: "Poppins400",
   },
   artwork: {
     width: 55,
@@ -127,8 +126,9 @@ const styles = StyleSheet.create({
   },
   track: {
     color: "white",
-    fontSize: 11,
-    fontFamily: "Poppins400",
+    fontSize: 13,
+    fontFamily: "Poppins500",
+    textTransform: "capitalize",
   },
   trackContainer: {
     flexDirection: "row",

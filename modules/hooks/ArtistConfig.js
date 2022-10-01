@@ -1,24 +1,7 @@
-import { useState, useEffect } from "react";
-import { getAllSongs } from "../../firebase/firebase-config";
+import { allSongsConfig } from "./allSongs-config";
 
 export const ArtistConfig = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [allSongs, setAllSongs] = useState([]);
-
-  const getData = async () => {
-    setIsLoading(true);
-    const tracks = await getAllSongs();
-    let trackAll = [];
-    tracks.forEach((track) => {
-      trackAll.push({ id: track.id, ...track.data() });
-    });
-    setAllSongs([...trackAll].sort(() => Math.random() - 0.5));
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [allSongs, isLoading] = allSongsConfig();
 
   const wizkid = allSongs.filter((track) => {
     if (track.artistName.includes("Wizkid")) {

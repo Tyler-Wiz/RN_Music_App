@@ -9,12 +9,18 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
-import { NewReleaseConfig } from "../NewReleaseConfig";
 import { GlobalStyles } from "../../../constants/color";
+import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 
 export const NewRelease = () => {
-  const [isLoading, newRelease] = NewReleaseConfig();
+  const [allSongs, isLoading] = allSongsConfig();
   const navigation = useNavigation();
+
+  const newRelease = allSongs.filter((track) => {
+    if (track.category.includes("new")) {
+      return track;
+    }
+  });
 
   return (
     <View>

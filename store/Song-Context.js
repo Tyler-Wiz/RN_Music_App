@@ -1,5 +1,7 @@
 import { useState, useEffect, createContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { doc, updateDoc, increment } from "firebase/firestore/lite";
+import { db } from "../firebase/firebase-config";
 
 export const SongContext = createContext({
   BookMarkSongs: () => {},

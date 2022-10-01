@@ -9,19 +9,24 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { TrendNewConfig } from "../Trending-Config";
 import { Description } from "../../../modules/common/Description";
 import { GlobalStyles } from "../../../constants/color";
+import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 
 export const TrendingSongs = () => {
-  const [allSongs, trending] = TrendNewConfig();
+  const [allSongs, isLoading] = allSongsConfig();
   const navigation = useNavigation();
+
+  const trending = allSongs.filter((track) => {
+    if (track.tag.includes("trending")) {
+      return track;
+    }
+  });
 
   const renderList = ({ item }) => {
     return (
       <View style={styles.trackContainer}>
         <TouchableOpacity
-          style={styles.singleTrackContainer}
           onPress={() => {
             navigation.navigate("Track", {
               artist: item.artistName,
@@ -32,10 +37,14 @@ export const TrendingSongs = () => {
               image: item.artwork,
             });
           }}>
-          <Image source={{ uri: item.artwork }} style={styles.artwork} />
-          <View>
-            <Text style={styles.track}>{item.trackName}</Text>
-            <Text style={styles.artist}>{item.artistName}</Text>
+          <View style={styles.trackInfoContainer}>
+            <View style={styles.singleTrackContainer}>
+              <Image source={{ uri: item.artwork }} style={styles.artwork} />
+              <View>
+                <Text style={styles.track}>{item.trackName}</Text>
+                <Text style={styles.artist}>{item.artistName}</Text>
+              </View>
+            </View>
           </View>
         </TouchableOpacity>
       </View>
@@ -54,7 +63,7 @@ export const TrendingSongs = () => {
           alwaysBounceVertical={false}
         />
       </ScrollView>
-      {/* <ActivityIndicator size="small" animating={isLoading} color="grey" /> */}
+      <ActivityIndicator size="small" animating={isLoading} color="grey" />
     </View>
   );
 };
@@ -65,28 +74,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     width: 250,
+    marginVertical: 3,
+  },
+  trackInfoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginRight: 10,
   },
   singleTrackContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 5,
+    marginRight: 10,
   },
   track: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 12,
     fontFamily: "Poppins600",
+    marginRight: 10,
   },
   artwork: {
-    width: 45,
-    height: 45,
+    width: 50,
+    height: 50,
     marginRight: 10,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins600",
+    marginRight: 10,
   },
   icon: {
-    marginRight: 2,
+    marginRight: 5,
   },
 });
