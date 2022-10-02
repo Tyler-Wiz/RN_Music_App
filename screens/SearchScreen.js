@@ -5,7 +5,8 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ScrollView,
+  FlatList,
+  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { SearchInput } from "../modules/common/SearchInput";
@@ -18,12 +19,10 @@ export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();
   const [filterData, setFilterData] = useState([]);
 
-  const RenderList = ({ item, i }) => {
+  const renderList = ({ item, i }) => {
     return (
       <View style={styles.trackContainer}>
         <TouchableOpacity
-          style={styles.singleTrackContainer}
-          key={i}
           onPress={() => {
             navigation.navigate("Track", {
               artist: item.artistName,
@@ -34,10 +33,12 @@ export const SearchScreen = ({ navigation }) => {
               image: item.artwork,
             });
           }}>
-          <Image source={{ uri: item.artwork }} style={styles.artwork} />
-          <View>
-            <Text style={styles.track}>{item.trackName}</Text>
-            <Text style={styles.artist}>{item.artistName}</Text>
+          <View style={styles.singleTrackContainer} key={item.youtube}>
+            <Image source={{ uri: item.artwork }} style={styles.artwork} />
+            <View>
+              <Text style={styles.track}>{item.trackName}</Text>
+              <Text style={styles.artist}>{item.artistName}</Text>
+            </View>
           </View>
         </TouchableOpacity>
         <MoreIcon
@@ -52,46 +53,51 @@ export const SearchScreen = ({ navigation }) => {
   };
 
   const searchArtist = (text) => {
-    setFilterData(
-      allSongs.filter(
-        (artist) =>
-          artist.artistName.toLowerCase().includes(text.toLowerCase()) ||
-          artist.trackName.toLowerCase().includes(text.toLowerCase())
-      )
-    );
+    if (text < 3) {
+      setFilterData([]);
+    } else {
+      setFilterData(
+        allSongs.filter(
+          (artist) =>
+            artist.artistName.toLowerCase().includes(text.toLowerCase()) ||
+            artist.trackName.toLowerCase().includes(text.toLowerCase())
+        )
+      );
+    }
   };
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.searchWrapper}>
-            <MaterialIcons
-              name="arrow-back-ios"
-              size={18}
-              color="white"
-              style={styles.icon}
-              onPress={() => {
-                navigation.goBack();
+      <View style={styles.container}>
+        <View style={styles.searchWrapper}>
+          <MaterialIcons
+            name="arrow-back-ios"
+            size={18}
+            color="white"
+            style={styles.icon}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+          <View style={styles.search}>
+            <SearchInput
+              placeholder="Artists, Songs, Lyrics"
+              autoCorrect={false}
+              onUpdateValue={(text) => {
+                searchArtist(text);
               }}
             />
-            <View style={styles.search}>
-              <SearchInput
-                placeholder="Artists, Songs, Lyrics"
-                autoCorrect={false}
-                onUpdateValue={(text) => {
-                  searchArtist(text);
-                }}
-              />
-            </View>
           </View>
-          <Text style={styles.artist}>Search By Artists</Text>
-          <ArtistSearch />
-          {filterData.map((artist, i) => (
-            <RenderList item={artist} i={i} />
-          ))}
         </View>
-      </ScrollView>
+        <Text style={styles.artist}>Search By Artists</Text>
+        <ArtistSearch />
+        <FlatList
+          data={filterData}
+          renderItem={renderList}
+          keyExtractor={(item) => item.id}
+          initialNumToRender={20}
+        />
+      </View>
     </SafeAreaView>
   );
 };

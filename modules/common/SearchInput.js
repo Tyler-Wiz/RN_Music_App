@@ -9,6 +9,7 @@ export const SearchInput = ({
   onUpdateValue,
   onPressIn,
   autoCorrect,
+  onKeyPress,
 }) => {
   return (
     <View>
@@ -23,6 +24,7 @@ export const SearchInput = ({
           placeholderTextColor={"white"}
           onPressIn={onPressIn}
           autoCorrect={autoCorrect}
+          onKeyPress={onKeyPress}
         />
       </View>
     </View>
