@@ -6,6 +6,7 @@ import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
 import { Recommended } from "../components/Recommended/components/Recommended";
 import { Ionicons } from "@expo/vector-icons";
 import { FeaturedArtist } from "../components/Search/FeaturedArtist";
+import AudioPlayer from "../misc/AudioPlayer";
 
 export const HomeScreen = ({ navigation }) => {
   return (

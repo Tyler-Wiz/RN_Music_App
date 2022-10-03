@@ -113,3 +113,30 @@ export const Artists = [
     imageUrl: require("../assets/Img/artists/Tems.webp"),
   },
 ];
+
+export const audioFile = [
+  {
+    id: "1",
+    artists: "Dj Badoo",
+    uri: "https://www.six9ja.com/wp-content/uploads/2022/09/Asake_-_Nzaza.mp3",
+    imageUrl: require("../assets/Img/artists/tiwa.webp"),
+  },
+  {
+    id: "2",
+    artists: "Dj Badoo 2",
+    uri: "https://tooxclusive.com/wp-content/uploads/2022/06/DJ-Baddo-AfroHit-Mix-Vol-3.mp3",
+    imageUrl: require("../assets/Img/artists/Tems.webp"),
+  },
+  {
+    id: "2",
+    artists: "Dj Badoo 2",
+    uri: "https://tooxclusive.com/wp-content/uploads/2022/06/DJ-Baddo-AfroHit-Mix-Vol-3.mp3",
+    imageUrl: require("../assets/Img/artists/davido.webp"),
+  },
+  {
+    id: "2",
+    artists: "Dj Badoo 2",
+    uri: "https://tooxclusive.com/wp-content/uploads/2022/06/DJ-Baddo-AfroHit-Mix-Vol-3.mp3",
+    imageUrl: require("../assets/Img/artists/Burna-Boy.webp"),
+  },
+];
