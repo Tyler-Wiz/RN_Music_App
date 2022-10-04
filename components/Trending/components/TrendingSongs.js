@@ -5,7 +5,7 @@ import {
   FlatList,
   ScrollView,
   Image,
-  TouchableOpacity,
+  Pressable,
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -26,7 +26,7 @@ export const TrendingSongs = () => {
   const renderList = ({ item }) => {
     return (
       <View style={styles.trackContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => {
             navigation.navigate("Track", {
               artist: item.artistName,
@@ -46,7 +46,7 @@ export const TrendingSongs = () => {
               </View>
             </View>
           </View>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   };

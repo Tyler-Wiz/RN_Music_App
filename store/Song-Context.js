@@ -10,6 +10,8 @@ export const SongContext = createContext({
   markPlaylist: [],
   isVisible: false,
   setIsVisible: () => {},
+  currentAudioIndex: null,
+  setCurrentAudioIndex: () => {},
 });
 
 export const SongProvider = ({ children }) => {
@@ -56,6 +58,8 @@ export const SongProvider = ({ children }) => {
     loadSong();
   }, []);
 
+  const [currentAudioIndex, setCurrentAudioIndex] = useState(0);
+
   const value = {
     BookMarkSongs: BookMarkSongs,
     BookMarkPlaylist: BookMarkPlaylist,
@@ -64,6 +68,8 @@ export const SongProvider = ({ children }) => {
     isVisible: isVisible,
     setIsVisible: setIsVisible,
     removeSong: removeSong,
+    currentAudioIndex: currentAudioIndex,
+    setCurrentAudioIndex: setCurrentAudioIndex,
   };
 
   return <SongContext.Provider value={value}>{children}</SongContext.Provider>;

@@ -6,7 +6,7 @@ import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
 import { Recommended } from "../components/Recommended/components/Recommended";
 import { Ionicons } from "@expo/vector-icons";
 import { FeaturedArtist } from "../components/Search/FeaturedArtist";
-import AudioPlayer from "../misc/AudioPlayer";
+import { NewsContent } from "../components/News/NewsContent";
 
 export const HomeScreen = ({ navigation }) => {
   return (
@@ -28,8 +28,9 @@ export const HomeScreen = ({ navigation }) => {
       </View>
       <ScrollView>
         <View style={styles.container}>
-          <FeaturedArtist />
           <TrendingSongs />
+          <NewsContent />
+          <FeaturedArtist />
           <NewRelease />
           <Chart />
           <FeaturedAlbums />

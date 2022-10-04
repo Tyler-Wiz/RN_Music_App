@@ -6,7 +6,6 @@ import { MyStack } from "./Navigators/Stack";
 import { StatusBar } from "expo-status-bar";
 import { SongProvider } from "./store/Song-Context";
 import { FeedBack } from "./modules/common/FeedBack";
-import AudioPlayer from "./misc/AudioPlayer";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,7 +47,6 @@ export default function App() {
         <StatusBar style="light" />
         <MyStack />
         <FeedBack />
-        <AudioPlayer />
       </NavigationContainer>
     </SongProvider>
   );
