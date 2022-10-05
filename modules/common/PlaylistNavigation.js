@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useContext, useState } from "react";
@@ -14,15 +14,18 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
 
   return (
     <View style={styles.container}>
-      <MaterialIcons
-        name="arrow-back-ios"
-        size={18}
-        color="white"
-        style={styles.icon}
+      <Pressable
         onPress={() => {
           navigation.goBack();
-        }}
-      />
+        }}>
+        <MaterialIcons
+          name="arrow-back-ios"
+          size={18}
+          color="white"
+          style={styles.icon}
+        />
+      </Pressable>
+
       <Text style={styles.artists}>{name}</Text>
       {bookmarkedId === name ? (
         <Ionicons
@@ -33,7 +36,7 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
         />
       ) : (
         <View>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               songCtx.BookMarkPlaylist(name);
               setLoved(true);
@@ -45,7 +48,7 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
               color={GlobalStyles.colors.accentPrimary}
               style={styles.icon}
             />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       )}
     </View>

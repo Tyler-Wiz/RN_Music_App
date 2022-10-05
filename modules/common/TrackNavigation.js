@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -27,7 +27,7 @@ export const TrackNavigation = ({
         }}
       />
       <Text style={styles.title}>{track}</Text>
-      <TouchableOpacity
+      <Pressable
         onPress={() => {
           navigation.navigate("book", {
             artist: artist,
@@ -46,7 +46,7 @@ export const TrackNavigation = ({
             color={GlobalStyles.colors.secondaryText}
           />
         </View>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };

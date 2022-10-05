@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React from "react";
 import { ArtistConfig } from "../../modules/hooks/ArtistConfig";
@@ -20,7 +20,7 @@ export const FeaturedArtist = () => {
 
   const RenderListItem = ({ artist, data }) => {
     return (
-      <TouchableOpacity
+      <Pressable
         style={styles.container}
         onPress={() => {
           navigation.navigate("PlaylistSongs", {
@@ -30,7 +30,7 @@ export const FeaturedArtist = () => {
         }}>
         <Image source={artist.imageUrl} style={styles.img} />
         <Text style={styles.artist}>{artist.name}</Text>
-      </TouchableOpacity>
+      </Pressable>
     );
   };
 

@@ -132,16 +132,6 @@ export const NewsContentData = [
     image:
       "https://tooxclusive.com/wp-content/uploads/2022/09/Tx-Mix-september-22.jpeg",
     content:
-      "<p>Singer, songwriter, and producer, Tekno (born Augustine Miles Kelechi) began releasing music in 2012, and his career has been on a steady rise since. Shortly after releasing hits “Duro” and “Pana”, he began receiving global recognition. His melodic sound and unique production style has made artists such as Beyoncé and Drake tap him for features and production. The Afro-Pop star continues to show his range with his new singles.Tekno’s latest offering ‘PAY‘ serves as his 4th official single this year (2022), a follow up to- ‘After Party‘, ‘JINJA‘ and ‘Mufasa‘. On this new song Big Tek Buga his haters, says Oluwa is on his side and he balls like Dangote on a steady. “PAY” is a celebration song…</p><p>Quotable Lyrics; If anybody hold my money, e go pay You know i getti two gbege And i like to celebrate Na superstar party dey for my Estate And na money i dey spray I dey ball like Dangote…<p>",
-  },
-  {
-    title:
-      "Bella Shmurda aka Dangbana teams up with Omah Lay for the release of a new song titled, “PHILO“.",
-    date: "Oct 4, 2022 | 07:20",
-    Author: "Tommy",
-    image:
-      "https://tooxclusive.com/wp-content/uploads/2022/09/Philo-artwork.jpeg",
-    content:
-      "<p>Singer, songwriter, and producer, Tekno (born Augustine Miles Kelechi) began releasing music in 2012, and his career has been on a steady rise since. Shortly after releasing hits “Duro” and “Pana”, he began receiving global recognition. His melodic sound and unique production style has made artists such as Beyoncé and Drake tap him for features and production. The Afro-Pop star continues to show his range with his new singles.Tekno’s latest offering ‘PAY‘ serves as his 4th official single this year (2022), a follow up to- ‘After Party‘, ‘JINJA‘ and ‘Mufasa‘. On this new song Big Tek Buga his haters, says Oluwa is on his side and he balls like Dangote on a steady. “PAY” is a celebration song…</p><p>Quotable Lyrics; If anybody hold my money, e go pay You know i getti two gbege And i like to celebrate Na superstar party dey for my Estate And na money i dey spray I dey ball like Dangote…<p>",
+      "<p>Singer, songwriter, and producer, <a href =`https://tooxclusive.com/download-mp3/bella-shmurda-x-omah-lay-philo-song/`>Tekno</a> (born Augustine Miles Kelechi) began releasing music in 2012, and his career has been on a steady rise since.</p><p>Shortly after releasing hits “Duro” and “Pana”, he began receiving global recognition. His melodic sound and unique production style has made artists such as Beyoncé and Drake tap him for features and production.</p><p> The Afro-Pop star continues to show his range with his new singles.Tekno’s latest offering ‘PAY‘ serves as his 4th official single this year (2022), a follow up to- ‘After Party‘, ‘JINJA‘ and ‘Mufasa‘. On this new song Big Tek Buga his haters, says Oluwa is on his side and he balls like Dangote on a steady. “PAY” is a celebration song…</p><p>Quotable Lyrics; If anybody hold my money, e go pay You know i getti two gbege And i like to celebrate Na superstar party dey for my Estate And na money i dey spray I dey ball like Dangote…<p>",
   },
 ];

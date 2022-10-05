@@ -47,11 +47,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   container: {
-    padding: 15,
+    paddingHorizontal: 15,
   },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginTop: 15,
     paddingVertical: 10,
     paddingHorizontal: 20,
     backgroundColor: "none",

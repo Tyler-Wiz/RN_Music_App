@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity,
+  Pressable,
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -28,7 +28,7 @@ export const Recommended = () => {
       <ScrollView horizontal>
         {Recommended.map((item, i) => (
           <View key={i} style={styles.container}>
-            <TouchableOpacity
+            <Pressable
               onPress={() => {
                 navigation.navigate("Track", {
                   artist: item.artistName,
@@ -42,7 +42,7 @@ export const Recommended = () => {
               <Image source={{ uri: item.artwork }} style={styles.artwork} />
               <Text style={styles.track}>{item.trackName}</Text>
               <Text style={styles.artist}>{item.artistName}</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
       </ScrollView>

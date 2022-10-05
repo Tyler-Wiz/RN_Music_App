@@ -52,6 +52,14 @@ export const NewsContent = () => {
           </Pressable>
         );
       })}
+      <View
+        style={{
+          backgroundColor: "white",
+          width: "100%",
+          height: 0.5,
+          marginVertical: 10,
+        }}
+      />
     </View>
   );
 };
@@ -59,11 +67,11 @@ export const NewsContent = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginVertical: 5,
+    marginVertical: 3,
   },
   descContainer: {
     flexDirection: "row",
-    marginVertical: 5,
+    marginVertical: 2,
     alignItems: "center",
     justifyContent: "space-between",
     width: "90%",

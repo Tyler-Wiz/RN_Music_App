@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity,
+  Pressable,
   Animated,
   SafeAreaView,
 } from "react-native";
@@ -95,7 +95,7 @@ export const PlaylistSongsScreen = ({ route }) => {
               let number = i + 1;
               return (
                 <View style={styles.trackContainer} key={i}>
-                  <TouchableOpacity
+                  <Pressable
                     style={styles.singleTrackContainer}
                     onPress={() => {
                       navigation.navigate("Track", {
@@ -115,7 +115,7 @@ export const PlaylistSongsScreen = ({ route }) => {
                       <Text style={styles.artist}>{item.artistName}</Text>
                       <Text style={styles.track}>{item.trackName}</Text>
                     </View>
-                  </TouchableOpacity>
+                  </Pressable>
                   <MoreIcon
                     youtubeId={item.youtube}
                     lyrics={item.lyrics}

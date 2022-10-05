@@ -12,10 +12,10 @@ const tagsStyles = {
     fontFamily: "Poppins700",
     margin: "10px",
     fontSize: "16px",
-    lineHeight: "27px",
+    lineHeight: "29px",
   },
   div: { margin: "10px" },
-  a: { color: "green" },
+  a: { color: "red", textDecorationLine: "none" },
   p: { fontSize: "15px", marginBottom: "10px" },
   h2: { fontSize: "16px", margin: "20px 0" },
 };

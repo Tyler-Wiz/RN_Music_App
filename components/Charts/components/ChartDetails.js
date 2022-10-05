@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MoreIcon } from "../../../modules/common/MoreIcon";
 import { GlobalStyles } from "../../../constants/color";
@@ -7,7 +7,7 @@ export const ChartDetails = ({ item, position }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      <Pressable
         onPress={() => {
           navigation.navigate("Track", {
             artist: item.artistName,
@@ -26,7 +26,7 @@ export const ChartDetails = ({ item, position }) => {
             <Text style={styles.artist}>{item.artistName}</Text>
           </View>
         </View>
-      </TouchableOpacity>
+      </Pressable>
       <MoreIcon
         youtubeId={item.youtube}
         lyrics={item.lyrics}

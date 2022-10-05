@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { GlobalStyles } from "../constants/color";
-import { TrackNavigation } from "../modules/common/TrackNavigation";
+import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
 import { RenderNewsContent } from "../components/News/RenderNewsContent";
 
 export const NewsScreen = ({ route }) => {
@@ -22,7 +22,7 @@ export const NewsScreen = ({ route }) => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView>
         <View style={styles.container}>
-          <TrackNavigation />
+          <PlaylistNavigation />
           <Text style={styles.title}>{title}</Text>
           <View style={styles.timeContainer}>
             <Text style={styles.author}>{author} </Text>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   container: {
-    padding: 15,
+    padding: 20,
     marginTop: 10,
   },
   image: {

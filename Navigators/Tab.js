@@ -6,6 +6,8 @@ const Tab = createBottomTabNavigator();
 import { HomeScreen } from "../screens/HomeScreen";
 import { FavoriteScreen } from "../screens/FavoriteScreen";
 import { PlaylistScreen } from "../screens/PlaylistScreen";
+
+
 import { Text } from "react-native";
 
 const homeName = "home";
@@ -40,7 +42,7 @@ export const MyTabs = () => {
           switch (routeName) {
             case homeName:
               iconName = focused ? "home" : "home-outline";
-              iconSize = focused ? 23 : 20;
+              iconSize = focused ? 18 : 18;
               break;
             case playlistName:
               iconName = focused ? "ios-list-sharp" : "ios-list-outline";
@@ -65,6 +67,7 @@ export const MyTabs = () => {
       <Tab.Screen name={homeName} component={HomeScreen} />
       <Tab.Screen name={playlistName} component={PlaylistScreen} />
       <Tab.Screen name={libraryName} component={FavoriteScreen} />
+      <
     </Tab.Navigator>
   );
 };

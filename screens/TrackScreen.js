@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   container: {
-    padding: 15,
+    paddingHorizontal: 15,
+    marginTop: 25,
     flex: 1,
   },
   lyricsContainer: {

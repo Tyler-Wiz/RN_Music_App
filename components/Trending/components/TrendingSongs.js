@@ -53,7 +53,7 @@ export const TrendingSongs = () => {
 
   return (
     <View>
-      <Description title="Most Played" size={15} margin={10} />
+      <Description title="Most Played" size={15} margin={5} />
       <ScrollView horizontal>
         <FlatList
           data={trending}
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     width: 250,
-    marginVertical: 3,
+    marginVertical: 2,
   },
   trackInfoContainer: {
     flexDirection: "row",

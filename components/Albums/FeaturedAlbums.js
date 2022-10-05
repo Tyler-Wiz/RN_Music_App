@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity,
+  Pressable,
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -19,17 +19,17 @@ export const FeaturedAlbums = () => {
     <View>
       <View style={styles.seeMoreContainer}>
         <Description title="New Albums" />
-        <TouchableOpacity
+        <Pressable
           onPress={() => {
             navigation.navigate("playlist");
           }}>
-          <Text style={styles.artist}>See More</Text>
-        </TouchableOpacity>
+          <Text style={styles.seeMore}>See More</Text>
+        </Pressable>
       </View>
       <ScrollView horizontal>
         {featuredAlbums.map((item, i) => (
           <View key={i} style={styles.container}>
-            <TouchableOpacity
+            <Pressable
               onPress={() => {
                 navigation.navigate("Album", {
                   itemId: item.id,
@@ -41,7 +41,7 @@ export const FeaturedAlbums = () => {
               <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
               <Text style={styles.artist}>{item[0].AlbumName}</Text>
               <Text style={styles.track}>{item[0].artistName}</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
       </ScrollView>
@@ -59,6 +59,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  seeMore: {
+    color: GlobalStyles.colors.accentPrimary,
+    fontSize: 12,
+    fontFamily: "Poppins600",
   },
   artist: {
     color: GlobalStyles.colors.primaryText,
