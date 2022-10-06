@@ -1,13 +1,21 @@
-import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  ScrollView,
+  Modal,
+  Pressable,
+  Text,
+} from "react-native";
 import { TrackNavigation } from "../modules/common/TrackNavigation";
 import RenderLyrics from "../components/RenderLyrics";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { LogBox } from "react-native";
 LogBox.ignoreLogs(["Warning: ..."]);
 LogBox.ignoreAllLogs();
-import { FeedBack } from "../modules/common/FeedBack";
 import { useContext, useState, useEffect } from "react";
 import { SongContext } from "../store/Song-Context";
+import { FeedBack } from "../modules/common/Feedback";
 
 export const TrackScreen = ({ route }) => {
   //Track params//
@@ -34,7 +42,7 @@ export const TrackScreen = ({ route }) => {
 
   useEffect(() => {
     checkId(itemId);
-  }, []);
+  }, [songCtx.markSongs]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -48,14 +56,14 @@ export const TrackScreen = ({ route }) => {
           itemId={itemId}
           bookmarkedId={bookmarkedId}
         />
-        <YoutubePlayer height={210} play={false} videoId={youtubeId} />
+        <YoutubePlayer height={200} play={false} videoId={youtubeId} />
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={styles.lyricsContainer}>
           <RenderLyrics lyrics={lyrics} />
         </ScrollView>
+        <FeedBack />
       </View>
-      <FeedBack />
     </SafeAreaView>
   );
 };
@@ -72,5 +80,10 @@ const styles = StyleSheet.create({
   },
   lyricsContainer: {
     marginVertical: 5,
+  },
+  track: {
+    color: "white",
+    fontSize: 13,
+    fontFamily: "Poppins600",
   },
 });

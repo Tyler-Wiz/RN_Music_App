@@ -25,32 +25,6 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
           style={styles.icon}
         />
       </Pressable>
-
-      <Text style={styles.artists}>{name}</Text>
-      {bookmarkedId === name ? (
-        <Ionicons
-          name="heart"
-          size={25}
-          color={GlobalStyles.colors.accentPrimary}
-          style={styles.icon}
-        />
-      ) : (
-        <View>
-          <Pressable
-            onPress={() => {
-              songCtx.BookMarkPlaylist(name);
-              setLoved(true);
-            }}
-            disabled={loved}>
-            <Ionicons
-              name={loved ? "heart" : "heart-outline"}
-              size={25}
-              color={GlobalStyles.colors.accentPrimary}
-              style={styles.icon}
-            />
-          </Pressable>
-        </View>
-      )}
     </View>
   );
 };

@@ -5,9 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { MyStack } from "./Navigators/Stack";
 import { StatusBar } from "expo-status-bar";
 import { SongProvider } from "./store/Song-Context";
-import { FeedBack } from "./modules/common/FeedBack";
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -46,7 +45,6 @@ export default function App() {
       <NavigationContainer onReady={onLayoutRootView}>
         <StatusBar style="light" />
         <MyStack />
-        <FeedBack />
       </NavigationContainer>
     </SongProvider>
   );

@@ -81,7 +81,7 @@ export const SearchScreen = ({ navigation }) => {
           />
           <View style={styles.search}>
             <SearchInput
-              placeholder="Artists, Songs, Lyrics"
+              placeholder="Type Artist, Song or Lyrics"
               autoCorrect={false}
               onUpdateValue={(text) => {
                 searchArtist(text);

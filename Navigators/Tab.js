@@ -6,13 +6,14 @@ const Tab = createBottomTabNavigator();
 import { HomeScreen } from "../screens/HomeScreen";
 import { FavoriteScreen } from "../screens/FavoriteScreen";
 import { PlaylistScreen } from "../screens/PlaylistScreen";
-
+import { SearchScreen } from "../screens/SearchScreen";
 
 import { Text } from "react-native";
 
 const homeName = "home";
 const playlistName = "playlist";
 const libraryName = "library";
+const searchName = "search";
 
 export const MyTabs = () => {
   return (
@@ -23,11 +24,11 @@ export const MyTabs = () => {
           return (
             <Text
               style={{
-                fontSize: 10,
+                fontSize: 9,
                 color: GlobalStyles.colors.accentPrimary,
                 marginTop: -10,
                 textTransform: "capitalize",
-                fontFamily: "Poppins700",
+                fontFamily: "Poppins500",
               }}>
               {focused ? route.name : ""}
             </Text>
@@ -52,6 +53,10 @@ export const MyTabs = () => {
               iconName = focused ? "musical-notes" : "musical-notes-outline";
               iconSize = focused ? 23 : 20;
               break;
+            case searchName:
+              iconName = focused ? "ios-search" : "ios-search-outline";
+              iconSize = focused ? 23 : 20;
+              break;
             default:
               return;
           }
@@ -67,7 +72,7 @@ export const MyTabs = () => {
       <Tab.Screen name={homeName} component={HomeScreen} />
       <Tab.Screen name={playlistName} component={PlaylistScreen} />
       <Tab.Screen name={libraryName} component={FavoriteScreen} />
-      <
+      <Tab.Screen name={searchName} component={SearchScreen} />
     </Tab.Navigator>
   );
 };

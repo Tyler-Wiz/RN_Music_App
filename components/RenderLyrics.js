@@ -16,7 +16,7 @@ const tagsStyles = {
   },
   div: { margin: "10px" },
   a: { color: "green" },
-  p: { fontSize: "15px", margin: "5px" },
+  p: { fontSize: "16px", margin: "5px" },
   h2: { fontSize: "16px", margin: "20px 0" },
 };
 

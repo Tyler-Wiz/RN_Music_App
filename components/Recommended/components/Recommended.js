@@ -70,9 +70,10 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   artwork: {
-    width: 130,
-    height: 130,
+    width: 140,
+    height: 140,
     marginBottom: 10,
+    borderRadius: 5,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,

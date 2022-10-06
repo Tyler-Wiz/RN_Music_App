@@ -5,46 +5,43 @@ import {
   Animated,
   useWindowDimensions,
 } from "react-native";
-import { useRef, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { SongContext } from "../../store/Song-Context";
 import { MaterialIcons } from "@expo/vector-icons";
 
 export const FeedBack = () => {
   const { width, height } = useWindowDimensions();
-  const fadeIn = useRef(new Animated.Value(0)).current;
-
   const songCtx = useContext(SongContext);
-
-  useEffect(() => {
-    Animated.timing(fadeIn, {
-      toValue: 1,
-      duration: 3000,
-      useNativeDriver: true,
-    }).start();
-  }, [songCtx.isVisible]);
-
-  useEffect(() => {
-    setInterval(() => {
-      songCtx.setIsVisible(false);
-    }, 5000);
-  }, [songCtx.isVisible]);
 
   return (
     <View>
-      {songCtx.isVisible === true ? (
+      {songCtx.addToFavorite ? (
         <Animated.View
           style={[
             styles.container,
             {
-              opacity: fadeIn,
-              bottom: height / 3,
+              bottom: height / 2.5,
               width: width / 2,
-              height: height / 4,
-              left: width / 4,
+              height: height / 12,
+              left: width / 4.5,
             },
           ]}>
-          <Text style={styles.add}>Added To Library</Text>
-          <MaterialIcons name="queue-music" size={144} color="white" />
+          <MaterialIcons name="queue-music" size={30} color="black" />
+          <Text style={styles.add}>Added To Favorites</Text>
+        </Animated.View>
+      ) : songCtx.removedToFavorite ? (
+        <Animated.View
+          style={[
+            styles.container,
+            {
+              bottom: height / 2.5,
+              width: width / 1.8,
+              height: height / 12,
+              left: width / 5,
+            },
+          ]}>
+          <MaterialIcons name="highlight-remove" size={30} color="black" />
+          <Text style={styles.add}>Removed From Favorites</Text>
         </Animated.View>
       ) : null}
     </View>
@@ -55,20 +52,18 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     zIndex: 99,
-    left: 130,
-    backgroundColor: "#000000",
-    paddingHorizontal: 25,
+    backgroundColor: "#CCCCCC",
+    paddingHorizontal: 30,
     paddingVertical: 15,
-    borderColor: "grey",
-    borderWidth: 0.5,
-    borderRadius: 5,
+    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
   },
   add: {
-    color: "white",
-    fontSize: 13,
+    color: "black",
+    fontSize: 12,
     fontFamily: "Poppins500",
     textAlign: "center",
+    marginTop: 5,
   },
 });

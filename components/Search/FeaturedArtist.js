@@ -21,7 +21,7 @@ export const FeaturedArtist = () => {
   const RenderListItem = ({ artist, data }) => {
     return (
       <Pressable
-        style={styles.container}
+        style={styles.wrapper}
         onPress={() => {
           navigation.navigate("PlaylistSongs", {
             data: data,
@@ -35,8 +35,8 @@ export const FeaturedArtist = () => {
   };
 
   return (
-    <View>
-      <Description title="Trending Artist" size={15} margin={10} />
+    <View style={styles.container}>
+      <Description title="Trending Artist" size={15} margin={5} />
       <ScrollView horizontal>
         {Artists.map((artist, i) => {
           switch (i) {
@@ -99,7 +99,10 @@ export const FeaturedArtist = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
+    marginVertical: 15,
+  },
+  wrapper: {
+    marginRight: 15,
     marginVertical: 15,
   },
   artist: {
@@ -110,9 +113,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   img: {
-    width: 60,
-    height: 60,
-    borderRadius: 60 / 2,
+    width: 70,
+    height: 70,
+    borderRadius: 70 / 2,
     marginBottom: 5,
   },
 });

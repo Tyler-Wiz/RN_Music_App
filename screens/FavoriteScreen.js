@@ -5,26 +5,30 @@ import {
   SafeAreaView,
   Image,
   ScrollView,
-  TouchableOpacity,
+  Pressable,
+  Modal,
 } from "react-native";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SongContext } from "../store/Song-Context";
 import { Description } from "../modules/common/Description";
 import { Feather } from "@expo/vector-icons";
+import { GlobalStyles } from "../constants/color";
 
 export const FavoriteScreen = ({ navigation }) => {
   const songCtx = useContext(SongContext);
+
+  const favorite = true;
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         {songCtx.markSongs ? (
-          <Description title="Recently Added" size="18" align="center" />
+          <Description title="Favorites" size="16" align="center" />
         ) : null}
         <ScrollView>
           {songCtx.markSongs.map((item, i) => (
             <View key={i} style={styles.wrapper}>
-              <TouchableOpacity
+              <Pressable
                 onPress={() => {
                   navigation.navigate("Track", {
                     artist: item.artist,
@@ -38,18 +42,22 @@ export const FavoriteScreen = ({ navigation }) => {
                 <View style={styles.imageWrapper}>
                   <Image source={{ uri: item.image }} style={styles.artwork} />
                   <View>
+                    <Text style={styles.track}>{item.track}</Text>
                     <Text style={styles.artist}>{item.artist}</Text>
-                    <Text style={styles.artist}>{item.track}</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
+              </Pressable>
               <View style={styles.iconContainer}>
                 <Feather
                   name="more-horizontal"
                   size={24}
                   color="white"
                   onPress={() => {
-                    songCtx.removeSong(item.itemId);
+                    // songCtx.removeSong(item.itemId);
+                    navigation.navigate("book", {
+                      favorite: favorite,
+                      itemId: item.id,
+                    });
                   }}
                 />
               </View>
@@ -82,15 +90,20 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
+    fontFamily: "Poppins400",
+  },
+  track: {
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 12,
     fontFamily: "Poppins500",
   },
   artwork: {
-    width: 75,
-    height: 75,
+    width: 50,
+    height: 50,
     marginRight: 10,
-    borderRadius: 2,
+    borderRadius: 5,
   },
   image: {
     width: 20,
@@ -99,17 +112,5 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     position: "relative",
-  },
-  delete: {
-    position: "absolute",
-    bottom: 20,
-    right: 10,
-    width: 150,
-    zIndex: 3,
-    borderColor: "white",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    alignItems: "center",
   },
 });

@@ -42,8 +42,8 @@ export const TrackNavigation = ({
         <View style={styles.viewCount}>
           <Feather
             name="more-horizontal"
-            size={24}
-            color={GlobalStyles.colors.secondaryText}
+            size={20}
+            color={GlobalStyles.colors.primaryText}
           />
         </View>
       </Pressable>
@@ -66,5 +66,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 13,
     fontFamily: "Poppins600",
+  },
+  viewCount: {
+    width: 28,
+    height: 28,
+    backgroundColor: GlobalStyles.colors.secondaryText,
+    borderRadius: 28 / 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

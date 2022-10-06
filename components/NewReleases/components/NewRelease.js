@@ -23,11 +23,11 @@ export const NewRelease = () => {
   });
 
   return (
-    <View>
-      <Description title="New Releases" margin={10} />
+    <View style={styles.container}>
+      <Description title="New Releases" size={15} margin={15} />
       <ScrollView horizontal>
         {newRelease.map((item, i) => (
-          <View key={i} style={styles.container}>
+          <View key={i} style={styles.wrapper}>
             <Pressable
               onPress={() => {
                 navigation.navigate("Track", {
@@ -54,7 +54,10 @@ export const NewRelease = () => {
 const styles = StyleSheet.create({
   container: {
     marginRight: 10,
-    marginVertical: 10,
+    marginVertical: 15,
+  },
+  wrapper: {
+    marginRight: 10,
   },
   description: {
     color: "white",
@@ -72,10 +75,12 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     marginBottom: 10,
+    borderRadius: 5,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins600",
+    width: "70%",
   },
 });

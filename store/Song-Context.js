@@ -3,32 +3,47 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const SongContext = createContext({
   BookMarkSongs: () => {},
-  BookMarkPlaylist: () => {},
   removeSong: () => {},
   markSongs: [],
-  markArtist: [],
-  markPlaylist: [],
   isVisible: false,
-  setIsVisible: () => {},
-  currentAudioIndex: null,
-  setCurrentAudioIndex: () => {},
+  addToFavorite: false,
+  removedToFavorite: false,
+  AddedModal: () => {},
+  removedModal: () => {},
 });
 
 export const SongProvider = ({ children }) => {
   const [markSongs, setMarkSongs] = useState([]);
-  const [markPlaylist, setMarkPlaylist] = useState([]);
-  const [isVisible, setIsVisible] = useState(false);
+  const [addToFavorite, setAddToFavorite] = useState(false);
+  const [removedToFavorite, removedAddToFavorite] = useState(false);
 
-  const BookMarkSongs = async (artist, track, image, lyrics, youtubeId, id) => {
-    setMarkSongs((prevState) => [
-      ...prevState,
-      { artist, track, image, lyrics, youtubeId, id },
-    ]);
-    await AsyncStorage.setItem("Songs", JSON.stringify(markSongs));
+  const AddedModal = () => {
+    setAddToFavorite(true);
+    setTimeout(() => {
+      setAddToFavorite(false);
+    }, 2000);
+  };
+  const removedModal = () => {
+    removedAddToFavorite(true);
+    setTimeout(() => {
+      removedAddToFavorite(false);
+    }, 2000);
   };
 
-  const BookMarkPlaylist = async (name) => {
-    setMarkPlaylist((prevState) => [...prevState, name]);
+  const BookMarkSongs = async (
+    artist,
+    track,
+    image,
+    lyrics,
+    youtubeId,
+    id,
+    bookmarkedId
+  ) => {
+    setMarkSongs((prevState) => [
+      ...prevState,
+      { artist, track, image, lyrics, youtubeId, id, bookmarkedId },
+    ]);
+    await AsyncStorage.setItem("Songs", JSON.stringify(markSongs));
   };
 
   const removeSong = async (id) => {
@@ -50,7 +65,7 @@ export const SongProvider = ({ children }) => {
         setMarkSongs(storedSong);
       }
     } catch (err) {
-      console.log(err);
+      console.log("error from Async" + err);
     }
   };
 
@@ -58,18 +73,14 @@ export const SongProvider = ({ children }) => {
     loadSong();
   }, []);
 
-  const [currentAudioIndex, setCurrentAudioIndex] = useState(0);
-
   const value = {
     BookMarkSongs: BookMarkSongs,
-    BookMarkPlaylist: BookMarkPlaylist,
     markSongs: markSongs,
-    markPlaylist: markPlaylist,
-    isVisible: isVisible,
-    setIsVisible: setIsVisible,
     removeSong: removeSong,
-    currentAudioIndex: currentAudioIndex,
-    setCurrentAudioIndex: setCurrentAudioIndex,
+    addToFavorite: addToFavorite,
+    removedToFavorite: removedToFavorite,
+    AddedModal: AddedModal,
+    removedModal: removedModal,
   };
 
   return <SongContext.Provider value={value}>{children}</SongContext.Provider>;

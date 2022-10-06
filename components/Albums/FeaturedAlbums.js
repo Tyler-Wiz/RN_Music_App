@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     marginBottom: 10,
+    borderRadius: 5,
   },
   track: {
     color: GlobalStyles.colors.secondaryText,

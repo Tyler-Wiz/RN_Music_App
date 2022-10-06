@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
 import { GlobalStyles } from "../../../constants/color";
 import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
+import { Ionicons } from "@expo/vector-icons";
 
 export const TrendingSongs = () => {
   const [allSongs, isLoading] = allSongsConfig();
@@ -53,7 +54,12 @@ export const TrendingSongs = () => {
 
   return (
     <View>
-      <Description title="Most Played" size={15} margin={5} />
+      <View style={styles.descContainer}>
+        <Description title="Trending" size={15} margin={10} />
+        <View style={styles.trendingIcon}>
+          <Ionicons name="trending-up-sharp" size={30} color="red" />
+        </View>
+      </View>
       <ScrollView horizontal>
         <FlatList
           data={trending}
@@ -69,12 +75,20 @@ export const TrendingSongs = () => {
 };
 
 const styles = StyleSheet.create({
+  descContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  trendingIcon: {
+    marginRight: 10,
+  },
   trackContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     width: 250,
-    marginVertical: 2,
+    marginVertical: 5,
   },
   trackInfoContainer: {
     flexDirection: "row",
@@ -93,9 +107,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   artwork: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     marginRight: 10,
+    borderRadius: 5,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,

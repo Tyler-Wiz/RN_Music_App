@@ -4,28 +4,12 @@ import { NewRelease } from "../components/NewReleases/components/NewRelease";
 import { Chart } from "../components/Charts/components/Chart";
 import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
 import { Recommended } from "../components/Recommended/components/Recommended";
-import { Ionicons } from "@expo/vector-icons";
 import { FeaturedArtist } from "../components/Search/FeaturedArtist";
 import { NewsContent } from "../components/News/NewsContent";
 
-export const HomeScreen = ({ navigation }) => {
+export const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.headerContainer}>
-        <View>
-          <Ionicons name="musical-notes" size={24} color="white" />
-        </View>
-        <View>
-          <Ionicons
-            name="ios-search-outline"
-            size={24}
-            color="white"
-            onPress={() => {
-              navigation.navigate("search");
-            }}
-          />
-        </View>
-      </View>
       <ScrollView>
         <View style={styles.container}>
           <TrendingSongs />
@@ -48,6 +32,7 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingHorizontal: 15,
+    marginTop: 40,
   },
   headerContainer: {
     flexDirection: "row",
