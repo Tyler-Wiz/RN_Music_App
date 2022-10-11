@@ -6,7 +6,6 @@ import AlbumScreen from "../screens/AlbumScreen";
 import { PlaylistSongsScreen } from "../screens/PlaylistSongsScreen";
 import { SearchScreen } from "../screens/SearchScreen";
 import { BookmarkScreen } from "../screens/BookmarkScreen";
-import { NewsScreen } from "../screens/NewsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +38,6 @@ export const MyStack = () => {
       <Stack.Screen name="Chart" component={ChartScreen} />
       <Stack.Screen name="Album" component={AlbumScreen} />
       <Stack.Screen name="PlaylistSongs" component={PlaylistSongsScreen} />
-      <Stack.Screen name="News" component={NewsScreen} />
       <Stack.Screen
         name="search"
         component={SearchScreen}

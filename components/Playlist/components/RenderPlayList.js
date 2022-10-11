@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../../constants/color";
 
 export const RenderPlayList = ({ playlist, data }) => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ export const RenderPlayList = ({ playlist, data }) => {
           img: playlist.imageUrl,
         });
       }}>
-      <Image source={playlist.imageUrl} style={styles.image} />
+      <Image source={{ uri: playlist.imageUrl }} style={styles.image} />
       <View style={styles.container}>
         <Text style={styles.track}>{playlist.name}</Text>
         <Text style={styles.artists}>{playlist.artists}</Text>
@@ -32,26 +33,26 @@ const styles = StyleSheet.create({
   },
   image: { width: 70, height: 70, marginRight: 15, borderRadius: 5 },
   container: {
-    borderBottomWidth: 0.3,
-    borderBottomColor: "white",
-    paddingVertical: 5,
+    paddingVertical: 8,
     width: "70%",
+    borderBottomWidth: 0.2,
+    borderBottomColor: GlobalStyles.colors.secondaryText,
   },
   track: {
     color: "white",
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: "Poppins600",
     textTransform: "capitalize",
   },
   artists: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 12,
     fontFamily: "Poppins400",
     textTransform: "capitalize",
     marginVertical: 3,
   },
   updated: {
-    color: "white",
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins400",
     textTransform: "capitalize",

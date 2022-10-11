@@ -5,7 +5,6 @@ import { Chart } from "../components/Charts/components/Chart";
 import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
 import { Recommended } from "../components/Recommended/components/Recommended";
 import { FeaturedArtist } from "../components/Search/FeaturedArtist";
-import { NewsContent } from "../components/News/NewsContent";
 
 export const HomeScreen = () => {
   return (
@@ -13,12 +12,10 @@ export const HomeScreen = () => {
       <ScrollView>
         <View style={styles.container}>
           <TrendingSongs />
-          <NewsContent />
           <FeaturedArtist />
           <NewRelease />
           <Chart />
           <FeaturedAlbums />
-          <Recommended />
         </View>
       </ScrollView>
     </SafeAreaView>

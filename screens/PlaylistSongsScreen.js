@@ -66,7 +66,7 @@ export const PlaylistSongsScreen = ({ route }) => {
                 backgroundColor: animateHeaderBackgroundColor,
               },
             ]}>
-            <Image source={img} style={styles.image} />
+            <Image source={{ uri: img }} style={styles.image} />
           </Animated.View>
         </View>
       );
@@ -76,7 +76,7 @@ export const PlaylistSongsScreen = ({ route }) => {
   return (
     <View style={styles.wrapper}>
       <DisplayLeadImage />
-      <PlaylistNavigation name={name} bookmarkedId={bookmarkedId} />
+      <PlaylistNavigation name={name} />
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
           <ScrollView

@@ -3,12 +3,6 @@ import { allSongsConfig } from "./allSongs-config";
 export const PlaylistConfig = () => {
   const [allSongs, isLoading] = allSongsConfig();
 
-  const twentyTwenty = allSongs.filter((track) => {
-    if (track.playlist.includes("2020")) {
-      return track;
-    }
-  });
-
   const Street = allSongs.filter((track) => {
     if (track.playlist.includes("Street")) {
       return track;
@@ -71,7 +65,6 @@ export const PlaylistConfig = () => {
 
   return [
     isLoading,
-    twentyTwenty,
     Street,
     WorkOut,
     ChopLife,

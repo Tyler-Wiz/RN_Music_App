@@ -2,11 +2,11 @@ import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 import { PlaylistData } from "../Data/data";
 import { PlaylistConfig } from "../modules/hooks/PlaylistConfig";
 import { RenderPlayList } from "../components/Playlist/components/RenderPlayList";
+import { Description } from "../modules/common/Description";
 
 export const PlaylistScreen = () => {
   const [
     isLoading,
-    twentyTwenty,
     Street,
     WorkOut,
     ChopLife,
@@ -20,8 +20,14 @@ export const PlaylistScreen = () => {
   ] = PlaylistConfig();
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <Description
+          title="Popular Playlist"
+          size="16"
+          align="center"
+          margin={20}
+        />
+        <ScrollView>
           {PlaylistData.map((playlist, i) => {
             switch (i) {
               case 0:
@@ -88,8 +94,8 @@ export const PlaylistScreen = () => {
                 return;
             }
           })}
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -101,6 +107,6 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 15,
-    marginTop: 40,
+    flex: 1,
   },
 });

@@ -24,7 +24,7 @@ export const NewRelease = () => {
 
   return (
     <View style={styles.container}>
-      <Description title="New Releases" size={15} margin={15} />
+      <Description title="New Singles" size={15} margin={15} />
       <ScrollView horizontal>
         {newRelease.map((item, i) => (
           <View key={i} style={styles.wrapper}>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   wrapper: {
-    marginRight: 10,
+    marginHorizontal: 7,
   },
   description: {
     color: "white",
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins600",
   },
   artwork: {
-    width: 140,
-    height: 140,
+    width: 150,
+    height: 150,
     marginBottom: 10,
     borderRadius: 5,
   },

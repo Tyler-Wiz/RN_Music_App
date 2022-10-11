@@ -57,7 +57,7 @@ export const TrendingSongs = () => {
       <View style={styles.descContainer}>
         <Description title="Trending" size={15} margin={10} />
         <View style={styles.trendingIcon}>
-          <Ionicons name="trending-up-sharp" size={30} color="red" />
+          <Ionicons name="trending-up-sharp" size={25} color="red" />
         </View>
       </View>
       <ScrollView horizontal>
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   artwork: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     marginRight: 10,
     borderRadius: 5,
   },

@@ -1,16 +1,9 @@
-import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useContext, useState } from "react";
-import { SongContext } from "../../store/Song-Context";
-import { GlobalStyles } from "../../constants/color";
 
-export const PlaylistNavigation = ({ name, bookmarkedId }) => {
-  const [loved, setLoved] = useState(false);
-
+export const PlaylistNavigation = ({ name }) => {
   const navigation = useNavigation();
-  const songCtx = useContext(SongContext);
 
   return (
     <View style={styles.container}>
@@ -25,6 +18,7 @@ export const PlaylistNavigation = ({ name, bookmarkedId }) => {
           style={styles.icon}
         />
       </Pressable>
+      <Text style={styles.title}>{name}</Text>
     </View>
   );
 };
@@ -40,11 +34,11 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
   },
-  artists: {
+  title: {
     color: "white",
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: "Poppins600",
     textTransform: "capitalize",
-    marginVertical: 3,
+    marginRight: 10,
   },
 });

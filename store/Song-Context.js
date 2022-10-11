@@ -37,11 +37,11 @@ export const SongProvider = ({ children }) => {
     lyrics,
     youtubeId,
     id,
-    bookmarkedId
+    date
   ) => {
     setMarkSongs((prevState) => [
       ...prevState,
-      { artist, track, image, lyrics, youtubeId, id, bookmarkedId },
+      { artist, track, image, lyrics, youtubeId, id, date },
     ]);
     await AsyncStorage.setItem("Songs", JSON.stringify(markSongs));
   };

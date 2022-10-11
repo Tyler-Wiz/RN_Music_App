@@ -6,25 +6,41 @@ import {
   Image,
   ScrollView,
   Pressable,
-  Modal,
 } from "react-native";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SongContext } from "../store/Song-Context";
 import { Description } from "../modules/common/Description";
 import { Feather } from "@expo/vector-icons";
 import { GlobalStyles } from "../constants/color";
+import { Ionicons } from "@expo/vector-icons";
 
 export const FavoriteScreen = ({ navigation }) => {
   const songCtx = useContext(SongContext);
+
+  let today = new Date();
+  let now =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
   const favorite = true;
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        {songCtx.markSongs ? (
-          <Description title="Favorites" size="16" align="center" />
-        ) : null}
+        {songCtx.markSongs.length === 0 ? (
+          <View style={styles.preFavorite}>
+            <Ionicons
+              name="musical-notes"
+              size={30}
+              color={GlobalStyles.colors.accentPrimary}
+            />
+            <Text style={styles.favorite}>
+              Start Adding Your Favorites Lyrics and Songs
+            </Text>
+            <Text style={styles.favorite}>Click the favorite button</Text>
+          </View>
+        ) : (
+          <Description title="Favorites Lyrics" size="16" align="center" />
+        )}
         <ScrollView>
           {songCtx.markSongs.map((item, i) => (
             <View key={i} style={styles.wrapper}>
@@ -47,13 +63,19 @@ export const FavoriteScreen = ({ navigation }) => {
                   </View>
                 </View>
               </Pressable>
-              <View style={styles.iconContainer}>
+              <View>
+                {item.date === now ? (
+                  <Text style={styles.date}>Today</Text>
+                ) : (
+                  <Text style={styles.date}>{item.date}</Text>
+                )}
+              </View>
+              <View>
                 <Feather
                   name="more-horizontal"
                   size={24}
                   color="white"
                   onPress={() => {
-                    // songCtx.removeSong(item.itemId);
                     navigation.navigate("book", {
                       favorite: favorite,
                       itemId: item.id,
@@ -76,6 +98,13 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 15,
+    flex: 1,
+  },
+  preFavorite: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+    marginTop: "40%",
   },
   wrapper: {
     marginHorizontal: 10,
@@ -87,7 +116,8 @@ const styles = StyleSheet.create({
   imageWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
+    width: 200,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,
@@ -96,12 +126,12 @@ const styles = StyleSheet.create({
   },
   track: {
     color: GlobalStyles.colors.primaryText,
-    fontSize: 12,
+    fontSize: 13,
     fontFamily: "Poppins500",
   },
   artwork: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     marginRight: 10,
     borderRadius: 5,
   },
@@ -110,7 +140,15 @@ const styles = StyleSheet.create({
     height: 25,
     resizeMode: "contain",
   },
-  iconContainer: {
-    position: "relative",
+  favorite: {
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 13,
+    fontFamily: "Poppins300",
+    marginTop: 7,
+  },
+  date: {
+    color: GlobalStyles.colors.secondaryText,
+    fontSize: 10,
+    fontFamily: "Poppins500",
   },
 });

@@ -4,5 +4,6 @@ export const GlobalStyles = {
     primaryText: "#fafafa",
     secondaryText: "#828385",
     accentPrimary: "#e8a704",
+    lightGrey: "#FFFFF9",
   },
 };

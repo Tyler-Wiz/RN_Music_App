@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { SongContext } from "../../store/Song-Context";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -17,23 +17,18 @@ export const RenderBookmarkContent = ({
   const songCtx = useContext(SongContext);
   const navigation = useNavigation();
 
-  const AddToFavorite = () => {
-    songCtx.BookMarkSongs(
-      artist,
-      track,
-      image,
-      lyrics,
-      youtubeId,
-      id,
-      bookmarkedId
-    );
-    navigation.pop();
-  };
+  const [date, setDate] = useState(null);
+  let today = new Date();
+  let now =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
-  const goToSearch = () => {
-    setTimeout(() => {
-      navigation.navigate("search");
-    }, 1000);
+  useEffect(() => {
+    setDate(now);
+  }, [artist]);
+
+  const AddToFavorite = () => {
+    songCtx.BookMarkSongs(artist, track, image, lyrics, youtubeId, id, date);
+    navigation.pop();
   };
 
   return (
@@ -77,8 +72,6 @@ export const RenderBookmarkContent = ({
         style={styles.bookmarkText}
         onPress={() => {
           navigation.pop();
-          goToSearch();
-          console.log("hello");
         }}>
         <MaterialCommunityIcons
           name="account-music-outline"

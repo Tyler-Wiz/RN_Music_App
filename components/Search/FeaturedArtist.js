@@ -28,7 +28,7 @@ export const FeaturedArtist = () => {
             img: artist.imageUrl,
           });
         }}>
-        <Image source={artist.imageUrl} style={styles.img} />
+        <Image source={{ uri: artist.imageUrl }} style={styles.img} />
         <Text style={styles.artist}>{artist.name}</Text>
       </Pressable>
     );

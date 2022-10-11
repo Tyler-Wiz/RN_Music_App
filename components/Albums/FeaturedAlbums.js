@@ -18,7 +18,7 @@ export const FeaturedAlbums = () => {
   return (
     <View>
       <View style={styles.seeMoreContainer}>
-        <Description title="New Albums" />
+        <Description title="New Albums" size={15} margin={15} />
         <Pressable
           onPress={() => {
             navigation.navigate("playlist");
@@ -52,7 +52,7 @@ export const FeaturedAlbums = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginRight: 10,
+    marginHorizontal: 8,
     marginVertical: 10,
   },
   seeMoreContainer: {
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
   artist: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 13,
-    fontFamily: "Poppins600",
-    maxWidth: "80%",
+    fontFamily: "Poppins500",
+    width: "95%",
   },
   artwork: {
-    width: 140,
-    height: 140,
+    width: 150,
+    height: 150,
     marginBottom: 10,
     borderRadius: 5,
   },
