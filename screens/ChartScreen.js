@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { ChartConfig } from "../components/Charts/ChartConfig";
 import { ChartDetails } from "../components/Charts/components/ChartDetails";
-import { TrackNavigation } from "../modules/common/TrackNavigation";
+import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
 
 export const ChartScreen = () => {
   const [featuredChart, isLoading, chart] = ChartConfig();
@@ -20,7 +20,7 @@ export const ChartScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <ScrollView alwaysBounceVertical={false}>
-          <TrackNavigation />
+          <PlaylistNavigation />
           <View style={styles.imageContainer}>
             <Image
               source={{

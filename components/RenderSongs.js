@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import { RenderBookmarkContent } from "./Bookmark/RenderBookmarkContent";
+import { GlobalStyles } from "../constants/color";
 
 export const RenderSongs = ({ item }) => {
   const navigation = useNavigation();
@@ -25,8 +26,8 @@ export const RenderSongs = ({ item }) => {
           }}>
           <Image source={{ uri: item.artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.artist}>{item.artistName}</Text>
             <Text style={styles.track}>{item.trackName}</Text>
+            <Text style={styles.artist}>{item.artistName}</Text>
           </View>
         </Pressable>
         <Feather
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginVertical: 5,
   },
-  artist: {
-    color: "white",
+  track: {
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins500",
   },
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 10,
   },
-  track: {
-    color: "white",
+  artist: {
+    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins400",
   },

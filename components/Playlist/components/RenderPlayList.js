@@ -40,21 +40,21 @@ const styles = StyleSheet.create({
   },
   track: {
     color: "white",
-    fontSize: 13,
+    fontSize: 15,
     fontFamily: "Poppins600",
+    textTransform: "capitalize",
+  },
+  updated: {
+    color: GlobalStyles.colors.secondaryText,
+    fontSize: 10,
+    fontFamily: "Poppins400",
     textTransform: "capitalize",
   },
   artists: {
     color: GlobalStyles.colors.secondaryText,
-    fontSize: 12,
-    fontFamily: "Poppins400",
-    textTransform: "capitalize",
-    marginVertical: 3,
-  },
-  updated: {
-    color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
     fontFamily: "Poppins400",
     textTransform: "capitalize",
+    marginVertical: 3,
   },
 });

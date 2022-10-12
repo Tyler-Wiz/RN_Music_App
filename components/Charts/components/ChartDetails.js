@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 import { GlobalStyles } from "../../../constants/color";
 
 export const ChartDetails = ({ item, position }) => {
@@ -26,6 +27,7 @@ export const ChartDetails = ({ item, position }) => {
           </View>
         </View>
       </Pressable>
+      <Feather name="more-horizontal" size={24} color="white" />
     </View>
   );
 };
