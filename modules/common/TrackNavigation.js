@@ -4,22 +4,14 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { GlobalStyles } from "../../constants/color";
 
-export const TrackNavigation = ({
-  youtubeId,
-  lyrics,
-  artist,
-  track,
-  image,
-  itemId,
-  bookmarkedId,
-}) => {
+export const TrackNavigation = ({ setIsVisible, track }) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <MaterialIcons
-        name="keyboard-arrow-down"
-        size={30}
+        name="arrow-back-ios"
+        size={20}
         color="white"
         style={styles.icon}
         onPress={() => {
@@ -29,15 +21,7 @@ export const TrackNavigation = ({
       <Text style={styles.title}>{track}</Text>
       <Pressable
         onPress={() => {
-          navigation.navigate("book", {
-            artist: artist,
-            track: track,
-            youtubeId: youtubeId,
-            lyrics: lyrics,
-            image: image,
-            itemId: itemId,
-            bookmarkedId: bookmarkedId,
-          });
+          setIsVisible(true);
         }}>
         <View style={styles.viewCount}>
           <Feather

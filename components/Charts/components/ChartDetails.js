@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { MoreIcon } from "../../../modules/common/MoreIcon";
 import { GlobalStyles } from "../../../constants/color";
 
 export const ChartDetails = ({ item, position }) => {
@@ -27,14 +26,6 @@ export const ChartDetails = ({ item, position }) => {
           </View>
         </View>
       </Pressable>
-      <MoreIcon
-        youtubeId={item.youtube}
-        lyrics={item.lyrics}
-        artist={item.artistName}
-        track={item.trackName}
-        image={item.artwork}
-        itemId={item.id}
-      />
     </View>
   );
 };

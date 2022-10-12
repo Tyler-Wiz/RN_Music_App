@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
-import { MoreIcon } from "../modules/common/MoreIcon";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { SongContext } from "../store/Song-Context";
+import { RenderSongs } from "../components/RenderSongs";
 
 export const PlaylistSongsScreen = ({ route }) => {
   const data = route.params.data;
@@ -22,21 +22,6 @@ export const PlaylistSongsScreen = ({ route }) => {
 
   // Context //
   const songCtx = useContext(SongContext);
-
-  // Get Id Of Current Playlist //
-  const [bookmarkedId, setBookmarkedId] = useState("");
-
-  const checkName = (id) => {
-    songCtx.markPlaylist?.map((item) => {
-      if (item === id) {
-        setBookmarkedId(id);
-      }
-    });
-  };
-
-  useEffect(() => {
-    checkName(name);
-  }, []);
 
   let AnimatedHeaderValue = new Animated.Value(0);
   const Header_Maximum_Height = 250;
@@ -92,37 +77,9 @@ export const PlaylistSongsScreen = ({ route }) => {
               { useNativeDriver: false }
             )}>
             {data.map((item, i) => {
-              let number = i + 1;
               return (
-                <View style={styles.trackContainer} key={i}>
-                  <Pressable
-                    style={styles.singleTrackContainer}
-                    onPress={() => {
-                      navigation.navigate("Track", {
-                        artist: item.artistName,
-                        track: item.trackName,
-                        youtubeId: item.youtube,
-                        itemId: item.id,
-                        lyrics: item.lyrics,
-                        image: item.artwork,
-                      });
-                    }}>
-                    <Image
-                      source={{ uri: item.artwork }}
-                      style={styles.artwork}
-                    />
-                    <View>
-                      <Text style={styles.artist}>{item.artistName}</Text>
-                      <Text style={styles.track}>{item.trackName}</Text>
-                    </View>
-                  </Pressable>
-                  <MoreIcon
-                    youtubeId={item.youtube}
-                    lyrics={item.lyrics}
-                    artist={item.artistName}
-                    track={item.trackName}
-                    image={item.artwork}
-                  />
+                <View key={i}>
+                  <RenderSongs item={item} />
                 </View>
               );
             })}
@@ -147,39 +104,5 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 10,
     flex: 1,
-  },
-  trackContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  singleTrackContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginVertical: 5,
-  },
-  artist: {
-    color: "white",
-    fontSize: 13,
-    fontFamily: "Poppins500",
-  },
-  artwork: {
-    width: 50,
-    height: 50,
-    marginHorizontal: 10,
-  },
-  track: {
-    color: "white",
-    fontSize: 11,
-    fontFamily: "Poppins400",
-  },
-  icon: {
-    marginRight: 2,
-  },
-  viewCount: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginRight: 15,
   },
 });

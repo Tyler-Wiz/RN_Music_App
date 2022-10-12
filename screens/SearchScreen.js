@@ -6,50 +6,21 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
-  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { SearchInput } from "../modules/common/SearchInput";
-import { MoreIcon } from "../modules/common/MoreIcon";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ArtistSearch } from "../components/Search/ArtistSearch";
 import { ArtistConfig } from "../modules/hooks/ArtistConfig";
+import { RenderSongs } from "../components/RenderSongs";
 
 export const SearchScreen = ({ navigation }) => {
   const [allSongs] = ArtistConfig();
+
   const [filterData, setFilterData] = useState([]);
 
   const renderList = ({ item, i }) => {
-    return (
-      <View style={styles.trackContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Track", {
-              artist: item.artistName,
-              track: item.trackName,
-              youtubeId: item.youtube,
-              itemId: item.id,
-              lyrics: item.lyrics,
-              image: item.artwork,
-            });
-          }}>
-          <View style={styles.singleTrackContainer} key={item.youtube}>
-            <Image source={{ uri: item.artwork }} style={styles.artwork} />
-            <View>
-              <Text style={styles.track}>{item.trackName}</Text>
-              <Text style={styles.artist}>{item.artistName}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <MoreIcon
-          youtubeId={item.youtube}
-          lyrics={item.lyrics}
-          artist={item.artistName}
-          track={item.trackName}
-          image={item.artwork}
-        />
-      </View>
-    );
+    return <RenderSongs item={item} i={i} />;
   };
 
   const searchArtist = (text) => {
@@ -76,7 +47,7 @@ export const SearchScreen = ({ navigation }) => {
             color="white"
             style={styles.icon}
             onPress={() => {
-              navigation.goBack();
+              navigation.navigate("home");
             }}
           />
           <View style={styles.search}>

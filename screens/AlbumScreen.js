@@ -1,42 +1,23 @@
 import {
   StyleSheet,
   Text,
-  TouchableOpacity,
+  ActivityIndicator,
   View,
   SafeAreaView,
   Image,
   ScrollView,
   Pressable,
 } from "react-native";
-import { getAlbumSongs } from "../firebase/firebase-config";
-import { useState, useEffect } from "react";
-import { TrackNavigation } from "../modules/common/TrackNavigation";
 import { NavWithSearch } from "../modules/common/NavWithSearch";
 import { GlobalStyles } from "../constants/color";
+import { AlbumLyricsConfig } from "../components/Albums/AlbumLyrics-config";
 
 const AlbumScreen = ({ route, navigation }) => {
-  const [lyrics, setLyrics] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
   const itemId = route.params.itemId;
   const featuredImg = route.params.featuredImg;
   const albumName = route.params.albumName;
   const artistName = route.params.artistName;
-
-  const getEachLyrics = async () => {
-    setIsLoading(true);
-    const lyrics = await getAlbumSongs(itemId);
-    let completeLyrics = [];
-    lyrics.forEach((lyrics) => {
-      completeLyrics.push({ id: lyrics.id, ...lyrics.data() });
-    });
-    setLyrics([...completeLyrics]);
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getEachLyrics();
-  }, []);
+  const [lyrics, isLoading] = AlbumLyricsConfig(itemId);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -87,6 +68,7 @@ const AlbumScreen = ({ route, navigation }) => {
           })}
         </View>
       </ScrollView>
+      <ActivityIndicator size="small" animating={isLoading} color="grey" />
     </SafeAreaView>
   );
 };

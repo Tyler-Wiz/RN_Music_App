@@ -6,16 +6,22 @@ import {
   Image,
   ScrollView,
   Pressable,
+  Modal,
 } from "react-native";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SongContext } from "../store/Song-Context";
 import { Description } from "../modules/common/Description";
 import { Feather } from "@expo/vector-icons";
 import { GlobalStyles } from "../constants/color";
 import { Ionicons } from "@expo/vector-icons";
+import { RenderRemoveContent } from "../components/Bookmark/RenderRemoveContent";
 
 export const FavoriteScreen = ({ navigation }) => {
   const songCtx = useContext(SongContext);
+
+  const [isvisible, setIsVisible] = useState(false);
+  const [songId, setSongId] = useState("");
+  const [artist, setArtist] = useState("");
 
   let today = new Date();
   let now =
@@ -76,16 +82,26 @@ export const FavoriteScreen = ({ navigation }) => {
                   size={24}
                   color="white"
                   onPress={() => {
-                    navigation.navigate("book", {
-                      favorite: favorite,
-                      itemId: item.id,
-                    });
+                    setIsVisible(true);
+                    setSongId(item.id);
+                    setArtist(item.artist);
                   }}
                 />
               </View>
             </View>
           ))}
         </ScrollView>
+        <Modal animationType="slide" transparent visible={isvisible}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalWrapper}>
+              <RenderRemoveContent
+                id={songId}
+                setIsVisible={setIsVisible}
+                artist={artist}
+              />
+            </View>
+          </View>
+        </Modal>
       </View>
     </SafeAreaView>
   );
@@ -150,5 +166,16 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.secondaryText,
     fontSize: 10,
     fontFamily: "Poppins500",
+  },
+  modalContainer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
+  modalWrapper: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: "#f5f5f5",
+    borderRadius: 15,
   },
 });

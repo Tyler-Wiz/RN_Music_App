@@ -20,11 +20,5 @@ export const AlbumConfig = () => {
     getData();
   }, []);
 
-  const featuredAlbums = albums.filter((album) => {
-    if (album[0].tag.includes("featured")) {
-      return album[0];
-    }
-  });
-
-  return [featuredAlbums, isLoading];
+  return [albums, isLoading];
 };

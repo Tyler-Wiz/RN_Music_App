@@ -12,7 +12,7 @@ export const allSongsConfig = () => {
     tracks.forEach((track) => {
       trackAll.push({ id: track.id, ...track.data() });
     });
-    setAllSongs([...trackAll].sort(() => Math.random() - 0.5));
+    setAllSongs([...trackAll]);
     setIsLoading(false);
   };
 

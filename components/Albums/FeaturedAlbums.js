@@ -13,7 +13,14 @@ import { Description } from "../../modules/common/Description";
 import { GlobalStyles } from "../../constants/color";
 
 export const FeaturedAlbums = () => {
-  const [featuredAlbums, isLoading] = AlbumConfig();
+  const [albums, isLoading] = AlbumConfig();
+
+  const featuredAlbums = albums.filter((album) => {
+    if (album[0].tag.includes("featured")) {
+      return album[0];
+    }
+  });
+
   const navigation = useNavigation();
   return (
     <View>

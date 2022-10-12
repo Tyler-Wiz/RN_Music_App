@@ -3,7 +3,6 @@ import { TrendingSongs } from "../components/Trending/components/TrendingSongs";
 import { NewRelease } from "../components/NewReleases/components/NewRelease";
 import { Chart } from "../components/Charts/components/Chart";
 import { FeaturedAlbums } from "../components/Albums/FeaturedAlbums";
-import { Recommended } from "../components/Recommended/components/Recommended";
 import { FeaturedArtist } from "../components/Search/FeaturedArtist";
 
 export const HomeScreen = () => {

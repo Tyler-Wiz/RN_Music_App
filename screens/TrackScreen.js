@@ -4,8 +4,6 @@ import {
   SafeAreaView,
   ScrollView,
   Modal,
-  Pressable,
-  Text,
 } from "react-native";
 import { TrackNavigation } from "../modules/common/TrackNavigation";
 import RenderLyrics from "../components/RenderLyrics";
@@ -16,6 +14,7 @@ LogBox.ignoreAllLogs();
 import { useContext, useState, useEffect } from "react";
 import { SongContext } from "../store/Song-Context";
 import { FeedBack } from "../modules/common/Feedback";
+import { RenderBookmarkContent } from "../components/Bookmark/RenderBookmarkContent";
 
 export const TrackScreen = ({ route }) => {
   //Track params//
@@ -26,10 +25,8 @@ export const TrackScreen = ({ route }) => {
   const image = route.params.image;
   const itemId = route.params.itemId;
 
-  // Context //
   const songCtx = useContext(SongContext);
-
-  // Get Id Of Current Music //
+  const [isvisible, setIsVisible] = useState(false);
   const [bookmarkedId, setBookmarkedId] = useState("");
 
   const checkId = (id) => {
@@ -47,22 +44,29 @@ export const TrackScreen = ({ route }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <TrackNavigation
-          youtubeId={youtubeId}
-          lyrics={lyrics}
-          artist={artist}
-          track={track}
-          image={image}
-          itemId={itemId}
-          bookmarkedId={bookmarkedId}
-        />
+        <TrackNavigation setIsVisible={setIsVisible} track={track} />
         <YoutubePlayer height={200} play={false} videoId={youtubeId} />
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={styles.lyricsContainer}>
           <RenderLyrics lyrics={lyrics} />
         </ScrollView>
-        <FeedBack />
+        <Modal animationType="slide" transparent visible={isvisible}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalWrapper}>
+              <RenderBookmarkContent
+                youtubeId={youtubeId}
+                lyrics={lyrics}
+                artist={artist}
+                track={track}
+                image={image}
+                id={itemId}
+                bookmarkedId={bookmarkedId}
+                setIsVisible={setIsVisible}
+              />
+            </View>
+          </View>
+        </Modal>
       </View>
     </SafeAreaView>
   );
@@ -85,5 +89,16 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 13,
     fontFamily: "Poppins600",
+  },
+  modalContainer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
+  modalWrapper: {
+    height: "40%",
+    width: "100%",
+    backgroundColor: "#f5f5f5",
+    borderRadius: 15,
   },
 });

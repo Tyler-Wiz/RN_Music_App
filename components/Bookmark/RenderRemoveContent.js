@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-export const RenderRemoveContent = ({ id }) => {
+export const RenderRemoveContent = ({ id, setIsVisible, artist }) => {
   const songCtx = useContext(SongContext);
   const navigation = useNavigation();
 
@@ -16,7 +16,7 @@ export const RenderRemoveContent = ({ id }) => {
           style={styles.bookmarkText}
           onPress={() => {
             songCtx.removeSong(id);
-            navigation.goBack();
+            setIsVisible(false);
           }}>
           <MaterialCommunityIcons
             name="delete-forever"
@@ -28,7 +28,10 @@ export const RenderRemoveContent = ({ id }) => {
         <Pressable
           style={styles.bookmarkText}
           onPress={() => {
-            navigation.goBack();
+            navigation.navigate("artist", {
+              artist: artist,
+            });
+            setIsVisible(false);
           }}>
           <MaterialCommunityIcons
             name="account-music-outline"
@@ -41,7 +44,7 @@ export const RenderRemoveContent = ({ id }) => {
       <Pressable
         style={styles.close}
         onPress={() => {
-          navigation.goBack();
+          setIsVisible(false);
         }}>
         <Ionicons name="ios-close-outline" size={40} color="black" />
       </Pressable>

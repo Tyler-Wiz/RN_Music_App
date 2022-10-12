@@ -13,6 +13,7 @@ export const RenderBookmarkContent = ({
   youtubeId,
   id,
   bookmarkedId,
+  setIsVisible,
 }) => {
   const songCtx = useContext(SongContext);
   const navigation = useNavigation();
@@ -24,11 +25,11 @@ export const RenderBookmarkContent = ({
 
   useEffect(() => {
     setDate(now);
-  }, [artist]);
+  }, [now]);
 
   const AddToFavorite = () => {
     songCtx.BookMarkSongs(artist, track, image, lyrics, youtubeId, id, date);
-    navigation.pop();
+    setIsVisible(false);
   };
 
   return (
@@ -41,7 +42,7 @@ export const RenderBookmarkContent = ({
         </View>
         <Pressable
           onPress={() => {
-            navigation.goBack();
+            setIsVisible(false);
           }}>
           <Ionicons name="ios-close-outline" size={35} color="black" />
         </Pressable>
@@ -52,7 +53,7 @@ export const RenderBookmarkContent = ({
           onPress={() => {
             songCtx.removedModal();
             songCtx.removeSong();
-            navigation.goBack();
+            setIsVisible(false);
           }}>
           <Ionicons name="md-heart-outline" size={24} color="black" />
           <Text style={styles.add}>Remove to favorites</Text>
@@ -71,7 +72,10 @@ export const RenderBookmarkContent = ({
       <Pressable
         style={styles.bookmarkText}
         onPress={() => {
-          navigation.pop();
+          navigation.navigate("artist", {
+            artist: artist,
+          });
+          setIsVisible(false);
         }}>
         <MaterialCommunityIcons
           name="account-music-outline"
@@ -80,11 +84,7 @@ export const RenderBookmarkContent = ({
         />
         <Text style={styles.add}>Go to Artist</Text>
       </Pressable>
-      <Pressable
-        style={styles.bookmarkText}
-        onPress={() => {
-          navigation.goBack();
-        }}>
+      <Pressable style={styles.bookmarkText} onPress={() => {}}>
         <Ionicons name="md-heart-outline" size={24} color="black" />
         <Text style={styles.add}>Love</Text>
       </Pressable>
