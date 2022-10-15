@@ -54,10 +54,10 @@ export const NewRelease = () => {
 const styles = StyleSheet.create({
   container: {
     marginRight: 10,
-    marginVertical: 15,
+    marginVertical: 12,
   },
   wrapper: {
-    marginHorizontal: 7,
+    marginRight: 15,
   },
   description: {
     color: "white",
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins600",
+    textTransform: "capitalize",
   },
   artwork: {
     width: 150,
@@ -82,5 +83,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: "Poppins600",
     width: "70%",
+    textTransform: "capitalize",
   },
 });

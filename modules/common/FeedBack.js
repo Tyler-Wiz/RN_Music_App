@@ -51,7 +51,7 @@ export const FeedBack = () => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    zIndex: 99,
+    zIndex: 9999999,
     backgroundColor: "#CCCCCC",
     paddingHorizontal: 30,
     paddingVertical: 15,

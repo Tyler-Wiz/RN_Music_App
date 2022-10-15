@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  View,
-  TouchableOpacity,
-  Image,
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, SafeAreaView, View, FlatList } from "react-native";
 import React, { useState } from "react";
 import { SearchInput } from "../modules/common/SearchInput";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -15,14 +7,14 @@ import { ArtistConfig } from "../modules/hooks/ArtistConfig";
 import { RenderSongs } from "../components/RenderSongs";
 
 export const SearchScreen = ({ navigation }) => {
+  // Data //
   const [allSongs] = ArtistConfig();
-
   const [filterData, setFilterData] = useState([]);
-
+  // List Rendering //
   const renderList = ({ item, i }) => {
     return <RenderSongs item={item} i={i} />;
   };
-
+  // Search Function //
   const searchArtist = (text) => {
     if (text < 3) {
       setFilterData([]);

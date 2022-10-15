@@ -36,8 +36,8 @@ export const RenderBookmarkContent = ({
     <View>
       <View style={styles.trackInfo}>
         <Image source={{ uri: image }} style={styles.artwork} />
-        <View style={styles.trackInfoSecondary}>
-          {track ? <Text style={styles.track}>{track} - </Text> : null}
+        <View>
+          {track ? <Text style={styles.track}>{track}</Text> : null}
           {artist ? <Text style={styles.artist}>{artist} </Text> : null}
         </View>
         <Pressable
@@ -72,6 +72,7 @@ export const RenderBookmarkContent = ({
       <Pressable
         style={styles.bookmarkText}
         onPress={() => {
+          navigation.goBack();
           navigation.navigate("artist", {
             artist: artist,
           });

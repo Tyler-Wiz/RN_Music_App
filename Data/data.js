@@ -43,7 +43,7 @@ export const PlaylistData = [
     id: "01",
     name: "Hip-Hop",
     imageUrl:
-      "https://tooxclusive.com/wp-content/uploads/2022/10/Hip-Hop-Ride-Playlist.webp",
+      "https://tooxclusive.com/wp-content/uploads/2022/10/bruno-guerrero-4kX_grw-Kuc-unsplash.jpg",
     artists: "MI Abaga, Vector, Ladipoe, Blaqbonez,Burna Boy, Erigga",
     updated: "31/12/2020",
   },
@@ -59,7 +59,7 @@ export const PlaylistData = [
     id: "01",
     name: "Amapiano",
     imageUrl:
-      "https://tooxclusive.com/wp-content/uploads/2022/10/Amapiano-Playlist.png",
+      "https://tooxclusive.com/wp-content/uploads/2022/10/ab67616d0000b273fb7d6de2b16d27af3f2e84ea.jpeg",
     artists:
       "Davido, Wizkid, Falz, Costa, Focalistic, peruzzi, Ckay, Wande Coal",
     updated: "31/12/2020",

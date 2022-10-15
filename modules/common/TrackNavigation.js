@@ -10,11 +10,12 @@ export const TrackNavigation = ({ setIsVisible, track }) => {
   return (
     <View style={styles.container}>
       <MaterialIcons
-        name="arrow-back-ios"
-        size={20}
+        name="keyboard-arrow-down"
+        size={35}
         color="white"
         style={styles.icon}
         onPress={() => {
+          0;
           navigation.goBack();
         }}
       />

@@ -14,8 +14,8 @@ import { GlobalStyles } from "../../../constants/color";
 import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 import { Ionicons } from "@expo/vector-icons";
 
-export const TrendingSongs = () => {
-  const [allSongs, isLoading] = allSongsConfig();
+export const TrendingSongs = ({ active }) => {
+  const [allSongs, isLoading] = allSongsConfig(active);
   const navigation = useNavigation();
 
   const trending = allSongs.filter((track) => {
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: "Poppins600",
     marginRight: 10,
+    textTransform: "capitalize",
   },
   artwork: {
     width: 50,
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: "Poppins600",
     marginRight: 10,
+    textTransform: "capitalize",
   },
   icon: {
     marginRight: 5,

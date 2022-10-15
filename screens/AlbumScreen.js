@@ -13,6 +13,7 @@ import { GlobalStyles } from "../constants/color";
 import { AlbumLyricsConfig } from "../components/Albums/AlbumLyrics-config";
 
 const AlbumScreen = ({ route, navigation }) => {
+  // Props from Individual Albums//
   const itemId = route.params.itemId;
   const featuredImg = route.params.featuredImg;
   const albumName = route.params.albumName;
@@ -42,9 +43,12 @@ const AlbumScreen = ({ route, navigation }) => {
                 <Pressable
                   onPress={() => {
                     navigation.navigate("Track", {
-                      itemId: item.artistName,
+                      itemId: itemId,
                       youtubeId: item[0].youtube,
                       lyrics: item[0].lyrics,
+                      image: featuredImg,
+                      track: item[0].trackName,
+                      artist: artistName,
                     });
                   }}
                   style={styles.wrapper}>

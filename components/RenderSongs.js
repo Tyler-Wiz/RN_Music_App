@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginVertical: 5,
+    marginVertical: 6,
   },
   track: {
     color: GlobalStyles.colors.primaryText,
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
   artwork: {
     width: 50,
     height: 50,
-    marginHorizontal: 10,
+    marginRight: 10,
+    borderRadius: 5,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,

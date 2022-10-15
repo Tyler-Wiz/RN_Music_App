@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, Animated } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
-export const NavWithSearch = () => {
+export const NavWithSearch = ({
+  description,
+  setIsVisible,
+  isVisible,
+  animatedSearch,
+}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -15,12 +20,14 @@ export const NavWithSearch = () => {
           navigation.goBack();
         }}
       />
+      <Text style={styles.description}>{description}</Text>
       <Ionicons
         name="ios-search-outline"
         size={24}
         color="white"
         onPress={() => {
-          navigation.navigate("search");
+          setIsVisible(!isVisible);
+          animatedSearch();
         }}
         style={styles.search}
       />
@@ -33,8 +40,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 45,
-    marginTop: 20,
+    paddingVertical: 15,
   },
   search: { marginRight: 10 },
+  description: {
+    color: GlobalStyles.colors.accentPrimary,
+    fontSize: 15,
+    fontFamily: "Poppins600",
+  },
 });
