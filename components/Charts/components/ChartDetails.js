@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
   },
   position: {
     color: "white",
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: "Poppins700",
     marginRight: 10,
+    width: 20,
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,

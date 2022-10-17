@@ -8,7 +8,7 @@ import { FavoriteScreen } from "../screens/FavoriteScreen";
 import { PlaylistScreen } from "../screens/PlaylistScreen";
 import { SearchScreen } from "../screens/SearchScreen";
 
-import { Text } from "react-native";
+import { Text, Platform } from "react-native";
 
 const homeName = "home";
 const playlistName = "playlist";
@@ -34,7 +34,10 @@ export const MyTabs = () => {
             </Text>
           );
         },
-        tabBarStyle: { paddingBottom: 25, backgroundColor: "black" },
+        tabBarStyle: {
+          paddingBottom: Platform.OS === "ios" ? 25 : 0,
+          backgroundColor: "black",
+        },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           let routeName = route.name;

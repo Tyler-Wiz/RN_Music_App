@@ -7,14 +7,17 @@ import {
   ActivityIndicator,
   Image,
 } from "react-native";
-import { ChartConfig } from "../components/Charts/ChartConfig";
 import { ChartDetails } from "../components/Charts/components/ChartDetails";
 import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
+import { sortArray } from "../modules/hooks/sortArray";
 
-export const ChartScreen = () => {
-  const [featuredChart, isLoading, chart] = ChartConfig();
-
+export const ChartScreen = ({ route }) => {
+  const chartData = route.params.chart;
+  const isLoading = route.params.isLoading;
   let position = 0;
+
+  const [sort_by] = sortArray();
+  const chart = chartData.sort(sort_by("album", false, (a) => a.toUpperCase()));
 
   return (
     <SafeAreaView style={styles.safeArea}>

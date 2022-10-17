@@ -15,15 +15,18 @@ import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 import { Ionicons } from "@expo/vector-icons";
 
 export const TrendingSongs = ({ active }) => {
+  //All Songs From Firebase //
   const [allSongs, isLoading] = allSongsConfig(active);
+  // Navigation //
   const navigation = useNavigation();
-
+  //filtered Trending Songs //
   const trending = allSongs.filter((track) => {
     if (track.tag.includes("trending")) {
       return track;
     }
   });
 
+  // Rendering List to flatlist//
   const renderList = ({ item }) => {
     return (
       <View style={styles.trackContainer}>

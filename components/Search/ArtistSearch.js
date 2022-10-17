@@ -1,21 +1,22 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
-import { ArtistConfig } from "../../modules/hooks/ArtistConfig";
 import { Artists } from "../../Data/data";
 import { useNavigation } from "@react-navigation/native";
 
 export const ArtistSearch = () => {
-  const [allSongs, wizkid, Burna, Fireboy, Kizz, Asake, Tiwa, Davido, Tems] =
-    ArtistConfig();
   const navigation = useNavigation();
-
   const RenderList = ({ data, artist, color }) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("PlaylistSongs", {
-            data: data,
-            img: artist.imageUrl,
+          navigation.navigate("artist", {
+            artist: data,
           });
         }}
         key={artist.name}>
@@ -33,49 +34,49 @@ export const ArtistSearch = () => {
           case 0:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={wizkid} />
+                <RenderList artist={artist} data="Wizkid" />
               </View>
             );
           case 1:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Burna} />
+                <RenderList artist={artist} data="Burna Boy" />
               </View>
             );
           case 2:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Fireboy} />
+                <RenderList artist={artist} data="Fireboy" />
               </View>
             );
           case 3:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Kizz} />
+                <RenderList artist={artist} data="Kizz Daniel" />
               </View>
             );
           case 4:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Asake} />
+                <RenderList artist={artist} data="Asake" />
               </View>
             );
           case 5:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Tiwa} />
+                <RenderList artist={artist} data="Tiwa Savage" />
               </View>
             );
           case 6:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Davido} />
+                <RenderList artist={artist} data="Davido" />
               </View>
             );
           case 7:
             return (
               <View key={i}>
-                <RenderList artist={artist} data={Tems} />
+                <RenderList artist={artist} data="Tems" />
               </View>
             );
           default:
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    padding: 10,
+    padding: Platform.OS === "ios" ? 10 : 0,
   },
   container: {
     borderColor: "#4c4c4c",

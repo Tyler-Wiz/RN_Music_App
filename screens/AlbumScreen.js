@@ -8,9 +8,9 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import { NavWithSearch } from "../modules/common/NavWithSearch";
 import { GlobalStyles } from "../constants/color";
 import { AlbumLyricsConfig } from "../components/Albums/AlbumLyrics-config";
+import { SearchNavigation } from "../modules/common/SearchNavigation";
 
 const AlbumScreen = ({ route, navigation }) => {
   // Props from Individual Albums//
@@ -24,7 +24,7 @@ const AlbumScreen = ({ route, navigation }) => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView>
         <View style={styles.container}>
-          <NavWithSearch />
+          <SearchNavigation />
           <View style={styles.imageContainer}>
             <Image
               source={{ uri: featuredImg }}

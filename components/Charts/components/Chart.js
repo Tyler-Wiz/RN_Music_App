@@ -6,34 +6,54 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { ChartConfig } from "../ChartConfig";
+import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 import { ChartDetails } from "./ChartDetails";
 import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../../../constants/color";
+import { sortArray } from "../../../modules/hooks/sortArray";
 
 export const Chart = () => {
-  const [featuredChart, isLoading] = ChartConfig();
+  const [allSongs, isLoading] = allSongsConfig();
   const navigation = useNavigation();
   let position = 0;
+
+  const chart = allSongs.filter((track) => {
+    if (track.album.includes("top")) {
+      return track;
+    }
+  });
+  const [sort_by] = sortArray();
+  const chartTop5 = allSongs.filter((track) => {
+    if (track.album.includes("five")) {
+      return track;
+    }
+  });
+  const featuredChart = chartTop5.sort(
+    sort_by("album", false, (a) => a.toUpperCase())
+  );
 
   return (
     <View>
       <Text style={styles.chartDescription}>CHART</Text>
       <Text style={styles.chartSub}>Top 20 Songs</Text>
       <ScrollView>
-        {featuredChart.map((item, i) => {
-          let number = i + 1;
-          return (
-            <View key={i}>
-              <ChartDetails item={item} position={number} />
-            </View>
-          );
-        })}
+        {featuredChart &&
+          featuredChart.map((item, i) => {
+            let number = i + 1;
+            return (
+              <View key={i}>
+                <ChartDetails item={item} position={number} />
+              </View>
+            );
+          })}
       </ScrollView>
       <TouchableOpacity
         style={styles.seeMoreChart}
         onPress={() => {
-          navigation.navigate("Chart");
+          navigation.navigate("Chart", {
+            chart: chart,
+            isLoading: isLoading,
+          });
         }}>
         <Text style={styles.chartSub}>SEE MORE</Text>
       </TouchableOpacity>

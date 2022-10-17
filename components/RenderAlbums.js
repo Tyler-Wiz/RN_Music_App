@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../constants/color";
 
-export const RenderAlbums = ({ item }) => {
+export const RenderAlbums = ({ item, width, height, flex, bottom }) => {
   const navigation = useNavigation();
 
   return (
@@ -17,9 +17,25 @@ export const RenderAlbums = ({ item }) => {
             artistName: item[0].artistName,
           });
         }}>
-        <Image source={{ uri: item[0].artwork }} style={styles.artwork} />
-        <Text style={styles.artist}>{item[0].AlbumName}</Text>
-        <Text style={styles.track}>{item[0].artistName}</Text>
+        <View
+          style={{
+            flexDirection: flex,
+          }}>
+          <Image
+            source={{ uri: item[0].artwork }}
+            style={{
+              width: width,
+              height: height,
+              marginBottom: bottom,
+              borderRadius: 5,
+              marginRight: 10,
+            }}
+          />
+          <View>
+            <Text style={styles.artist}>{item[0].AlbumName}</Text>
+            <Text style={styles.track}>{item[0].artistName}</Text>
+          </View>
+        </View>
       </Pressable>
     </View>
   );
@@ -34,13 +50,7 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins500",
-    width: "95%",
-  },
-  artwork: {
-    width: 150,
-    height: 150,
-    marginBottom: 10,
-    borderRadius: 5,
+    // width: "95%",
   },
   track: {
     color: GlobalStyles.colors.secondaryText,

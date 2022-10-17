@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, Pressable, Image, Modal } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Image,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
@@ -12,7 +20,7 @@ export const RenderSongs = ({ item }) => {
   return (
     <View>
       <View style={styles.trackContainer}>
-        <Pressable
+        <TouchableOpacity
           style={styles.singleTrackContainer}
           onPress={() => {
             navigation.navigate("Track", {
@@ -29,7 +37,7 @@ export const RenderSongs = ({ item }) => {
             <Text style={styles.track}>{item.trackName}</Text>
             <Text style={styles.artist}>{item.artistName}</Text>
           </View>
-        </Pressable>
+        </TouchableOpacity>
         <Feather
           name="more-horizontal"
           size={24}

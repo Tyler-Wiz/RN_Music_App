@@ -85,10 +85,6 @@ export const RenderBookmarkContent = ({
         />
         <Text style={styles.add}>Go to Artist</Text>
       </Pressable>
-      <Pressable style={styles.bookmarkText} onPress={() => {}}>
-        <Ionicons name="md-heart-outline" size={24} color="black" />
-        <Text style={styles.add}>Love</Text>
-      </Pressable>
     </View>
   );
 };

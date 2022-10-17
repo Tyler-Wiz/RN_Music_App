@@ -45,7 +45,7 @@ export const FavoriteScreen = ({ navigation }) => {
             <Text style={styles.favorite}>Click the favorite button</Text>
           </View>
         ) : (
-          <Description title="Favorites Lyrics" size="16" align="center" />
+          <Description title="Favorites Lyrics" size={16} align="center" />
         )}
         <ScrollView>
           {songCtx.markSongs.map((item, i) => (
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     flex: 1,
+    marginTop: Platform.OS === "ios" ? 20 : 40,
   },
   preFavorite: {
     justifyContent: "center",
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modalWrapper: {
-    height: "20%",
+    height: "25%",
     width: "100%",
     backgroundColor: "#f5f5f5",
     borderRadius: 15,

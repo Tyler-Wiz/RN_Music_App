@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Animated } from "react-native";
+import { StyleSheet, Text, View, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../../constants/color";
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 15,
+    marginVertical: Platform.OS === "ios" ? 0 : 30,
   },
   search: { marginRight: 10 },
   description: {

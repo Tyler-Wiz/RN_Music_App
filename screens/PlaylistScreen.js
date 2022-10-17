@@ -23,7 +23,7 @@ export const PlaylistScreen = () => {
       <View style={styles.container}>
         <Description
           title="Popular Playlist"
-          size="16"
+          size={20}
           align="center"
           margin={20}
         />

@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Pressable,
-  ActivityIndicator,
-} from "react-native";
+import { StyleSheet, View, ScrollView, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AlbumConfig } from "./AlbumConfig";
 import { Description } from "../../modules/common/Description";
@@ -13,30 +6,31 @@ import { GlobalStyles } from "../../constants/color";
 import { RenderAlbums } from "../RenderAlbums";
 
 export const FeaturedAlbums = () => {
+  //Albums From Firebase //
   const [albums, isLoading] = AlbumConfig();
-
+  //filtered Featured Albums/
   const featuredAlbums = albums.filter((album) => {
     if (album[0].tag.includes("featured")) {
       return album[0];
     }
   });
-
+  // Navigation //
   const navigation = useNavigation();
   return (
     <View>
       <View style={styles.seeMoreContainer}>
         <Description title="New Albums" size={15} margin={15} />
-        <Pressable
-          onPress={() => {
-            navigation.navigate("playlist");
-          }}>
-          <Text style={styles.seeMore}>See More</Text>
-        </Pressable>
       </View>
       <ScrollView horizontal>
         {featuredAlbums.map((item, i) => (
           <View key={i}>
-            <RenderAlbums item={item} />
+            <RenderAlbums
+              item={item}
+              width={150}
+              height={150}
+              flex="column"
+              bottom={10}
+            />
           </View>
         ))}
       </ScrollView>

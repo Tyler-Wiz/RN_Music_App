@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   add: {
     color: "black",
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: "Poppins500",
     textAlign: "center",
     marginTop: 5,

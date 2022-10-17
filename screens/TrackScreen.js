@@ -67,7 +67,7 @@ export const TrackScreen = ({ route }) => {
             </View>
           </View>
         </Modal>
-        {/* <FeedBack /> */}
+        <FeedBack />
       </View>
     </SafeAreaView>
   );
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modalWrapper: {
-    height: "40%",
+    height: "32%",
     width: "100%",
     backgroundColor: "#f5f5f5",
     borderRadius: 15,

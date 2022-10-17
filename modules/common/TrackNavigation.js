@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 30,
+    marginTop: Platform.OS === "ios" ? 0 : 20,
     paddingHorizontal: 10,
   },
   icon: {

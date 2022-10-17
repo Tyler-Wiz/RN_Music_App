@@ -17,7 +17,7 @@ export const ArtistSongsScreen = ({ route }) => {
   // toggle visibility //
   const [isVisible, setIsVisible] = useState(false);
   // Animation //
-  const slideDown = useRef(new Animated.Value(-30)).current;
+  const slideDown = useRef(new Animated.Value(-20)).current;
   const animatedSearch = () => {
     Animated.timing(slideDown, {
       toValue: 0,

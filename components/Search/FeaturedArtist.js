@@ -7,15 +7,12 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { ArtistConfig } from "../../modules/hooks/ArtistConfig";
 import { Artists } from "../../Data/data";
 import { GlobalStyles } from "../../constants/color";
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../modules/common/Description";
 
 export const FeaturedArtist = () => {
-  const [allSongs, wizkid, Burna, Fireboy, Kizz, Asake, Tiwa, Davido, Tems] =
-    ArtistConfig();
   const navigation = useNavigation();
 
   const RenderListItem = ({ artist, data }) => {
@@ -23,9 +20,8 @@ export const FeaturedArtist = () => {
       <Pressable
         style={styles.wrapper}
         onPress={() => {
-          navigation.navigate("PlaylistSongs", {
-            data: data,
-            img: artist.imageUrl,
+          navigation.navigate("artist", {
+            artist: data,
           });
         }}>
         <Image source={{ uri: artist.imageUrl }} style={styles.img} />
@@ -43,49 +39,49 @@ export const FeaturedArtist = () => {
             case 0:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={wizkid} />
+                  <RenderListItem artist={artist} data="Wizkid" />
                 </View>
               );
             case 1:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Burna} />
+                  <RenderListItem artist={artist} data="Burna Boy" />
                 </View>
               );
             case 2:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Fireboy} />
+                  <RenderListItem artist={artist} data="Fireboy" />
                 </View>
               );
             case 3:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Kizz} />
+                  <RenderListItem artist={artist} data="Kizz Daniel" />
                 </View>
               );
             case 4:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Asake} />
+                  <RenderListItem artist={artist} data="Asake" />
                 </View>
               );
             case 5:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Tiwa} />
+                  <RenderListItem artist={artist} data="Tiwa Savage" />
                 </View>
               );
             case 6:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Davido} />
+                  <RenderListItem artist={artist} data="Davido" />
                 </View>
               );
             case 7:
               return (
                 <View key={i}>
-                  <RenderListItem artist={artist} data={Tems} />
+                  <RenderListItem artist={artist} data="Tems" />
                 </View>
               );
             default:

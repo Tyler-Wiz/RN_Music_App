@@ -20,11 +20,5 @@ export const ChartConfig = () => {
     getData();
   }, []);
 
-  const featuredChart = chart.filter((track) => {
-    if (track.tag.includes("featured")) {
-      return track;
-    }
-  });
-
-  return [featuredChart, isLoading, chart];
+  return [chart, isLoading];
 };

@@ -1,23 +1,32 @@
-import { StyleSheet, Text, SafeAreaView, View, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  View,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import React, { useState } from "react";
 import { SearchInput } from "../modules/common/SearchInput";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ArtistSearch } from "../components/Search/ArtistSearch";
-import { ArtistConfig } from "../modules/hooks/ArtistConfig";
+import { allSongsConfig } from "../modules/hooks/allSongs-config";
 import { RenderSongs } from "../components/RenderSongs";
+import { AlbumConfig } from "../components/Albums/AlbumConfig";
+import { GlobalStyles } from "../constants/color";
+import { RenderAlbums } from "../components/RenderAlbums";
 
 export const SearchScreen = ({ navigation }) => {
   // Data //
-  const [allSongs] = ArtistConfig();
+  const [allSongs] = allSongsConfig();
+  const [albums] = AlbumConfig();
   const [filterData, setFilterData] = useState([]);
-  // List Rendering //
-  const renderList = ({ item, i }) => {
-    return <RenderSongs item={item} i={i} />;
-  };
+  const [filterAlbum, setFilterAlbum] = useState([]);
   // Search Function //
   const searchArtist = (text) => {
     if (text < 3) {
       setFilterData([]);
+      setFilterAlbum([]);
     } else {
       setFilterData(
         allSongs.filter(
@@ -26,8 +35,17 @@ export const SearchScreen = ({ navigation }) => {
             artist.trackName.toLowerCase().includes(text.toLowerCase())
         )
       );
+      setFilterAlbum(
+        albums.filter(
+          (album) =>
+            album[0].AlbumName.toLowerCase().includes(text.toLowerCase()) ||
+            album[0].artistName.toLowerCase().includes(text.toLowerCase())
+        )
+      );
     }
   };
+
+  const showfirstFive = filterData.slice(0, 5);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -54,12 +72,46 @@ export const SearchScreen = ({ navigation }) => {
         </View>
         <Text style={styles.artist}>Search By Artists</Text>
         <ArtistSearch />
-        <FlatList
-          data={filterData}
-          renderItem={renderList}
-          keyExtractor={(item) => item.id}
-          initialNumToRender={20}
-        />
+        <ScrollView>
+          {filterAlbum.length !== 0 && (
+            <View style={styles.desc}>
+              <Text style={styles.descTitle}>Album</Text>
+            </View>
+          )}
+          {filterAlbum &&
+            filterAlbum.map((item, i) => (
+              <View key={i}>
+                <RenderAlbums
+                  item={item}
+                  width={50}
+                  height={50}
+                  flex="row"
+                  bottom={0}
+                />
+              </View>
+            ))}
+          {showfirstFive.length !== 0 && (
+            <View style={styles.desc}>
+              <Text style={styles.descTitle}>Songs</Text>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("songs", {
+                    data: filterData,
+                  });
+                }}>
+                {filterData.length > 5 && (
+                  <Text style={styles.viewMore}>View all</Text>
+                )}
+              </Pressable>
+            </View>
+          )}
+          {showfirstFive &&
+            showfirstFive.map((item, i) => (
+              <View key={i}>
+                <RenderSongs item={item} />
+              </View>
+            ))}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -79,6 +131,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
+    marginBottom: 10,
   },
   search: {
     flex: 2,
@@ -110,5 +163,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginVertical: 5,
+  },
+  viewMore: {
+    color: GlobalStyles.colors.accentPrimary,
+    fontSize: 14,
+    fontFamily: "Poppins600",
+  },
+  desc: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  descTitle: {
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 16,
+    fontFamily: "Poppins600",
   },
 });

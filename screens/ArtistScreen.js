@@ -93,7 +93,13 @@ export const ArtistScreen = ({ route, navigation }) => {
             {featuredAlbums &&
               featuredAlbums.map((item, i) => (
                 <View key={i}>
-                  <RenderAlbums item={item} />
+                  <RenderAlbums
+                    item={item}
+                    width={150}
+                    height={150}
+                    flex="column"
+                    bottom={10}
+                  />
                 </View>
               ))}
           </ScrollView>
@@ -150,5 +156,8 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primaryText,
     fontSize: 17,
     fontFamily: "Poppins600",
+  },
+  icon: {
+    marginVertical: Platform.OS === "ios" ? 0 : 30,
   },
 });
