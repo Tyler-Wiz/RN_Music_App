@@ -1,29 +1,34 @@
-import { StyleSheet, Platform, View } from "react-native";
+import { StyleSheet, Platform, View, Pressable } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
 export const SearchNavigation = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.icon}>
-      <Ionicons
-        name="chevron-back"
-        size={24}
-        color="white"
+      <Pressable
         onPress={() => {
           navigation.goBack();
-        }}
-      />
-      <Ionicons
-        name="search-outline"
-        size={24}
-        color="white"
+        }}>
+        <Ionicons
+          name="chevron-back"
+          size={24}
+          color={GlobalStyles.colors.iconColor}
+        />
+      </Pressable>
+      <Pressable
         onPress={() => {
           navigation.navigate("search");
-        }}
-      />
+        }}>
+        <Ionicons
+          name="search-outline"
+          size={24}
+          color={GlobalStyles.colors.iconColor}
+        />
+      </Pressable>
     </View>
   );
 };

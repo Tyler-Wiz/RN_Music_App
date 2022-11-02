@@ -1,8 +1,10 @@
+import React from "react";
 import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 import { PlaylistData } from "../Data/data";
 import { PlaylistConfig } from "../modules/hooks/PlaylistConfig";
 import { RenderPlayList } from "../components/Playlist/components/RenderPlayList";
 import { Description } from "../modules/common/Description";
+import { GlobalStyles } from "../constants/color";
 
 export const PlaylistScreen = () => {
   const [
@@ -23,11 +25,11 @@ export const PlaylistScreen = () => {
       <View style={styles.container}>
         <Description
           title="Popular Playlist"
-          size={20}
+          size={15}
           align="center"
           margin={20}
         />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {PlaylistData.map((playlist, i) => {
             switch (i) {
               case 0:
@@ -103,7 +105,7 @@ export const PlaylistScreen = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     padding: 15,

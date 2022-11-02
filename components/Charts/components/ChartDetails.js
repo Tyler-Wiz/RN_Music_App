@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import { GlobalStyles } from "../../../constants/color";
@@ -27,7 +28,11 @@ export const ChartDetails = ({ item, position }) => {
           </View>
         </View>
       </Pressable>
-      <Feather name="more-horizontal" size={24} color="white" />
+      <Feather
+        name="more-horizontal"
+        size={24}
+        color={GlobalStyles.colors.primaryText}
+      />
     </View>
   );
 };
@@ -37,13 +42,14 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   trackInfo: {
     flexDirection: "row",
     alignItems: "center",
   },
   position: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 16,
     fontFamily: "Poppins700",
     marginRight: 10,
@@ -52,7 +58,8 @@ const styles = StyleSheet.create({
   artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins400",
+    textTransform: "capitalize",
   },
   artwork: {
     width: 50,
@@ -61,7 +68,8 @@ const styles = StyleSheet.create({
   },
   track: {
     color: GlobalStyles.colors.primaryText,
-    fontSize: 13,
-    fontFamily: "Poppins600",
+    fontSize: 12,
+    fontFamily: "Poppins500",
+    textTransform: "capitalize",
   },
 });

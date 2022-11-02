@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import React from "react";
 import { allSongsConfig } from "../../../modules/hooks/allSongs-config";
 import { ChartDetails } from "./ChartDetails";
 import { useNavigation } from "@react-navigation/native";
@@ -63,7 +64,7 @@ export const Chart = () => {
 };
 const styles = StyleSheet.create({
   chartDescription: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 25,
     fontFamily: "Poppins700",
     marginVertical: 5,
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   seeMoreChart: {
     borderWidth: 1.2,
-    borderColor: "white",
+    borderColor: GlobalStyles.colors.primaryText,
     alignItems: "center",
     justifyContent: "center",
     padding: 10,

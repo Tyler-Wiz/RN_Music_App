@@ -33,7 +33,7 @@ export const FeaturedArtist = () => {
   return (
     <View style={styles.container}>
       <Description title="Trending Artist" size={15} margin={5} />
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {Artists.map((artist, i) => {
           switch (i) {
             case 0:
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   artist: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 11,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins500",
     textTransform: "capitalize",
     textAlign: "center",
   },

@@ -51,15 +51,18 @@ export const SearchScreen = ({ navigation }) => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.searchWrapper}>
-          <MaterialIcons
-            name="arrow-back-ios"
-            size={18}
-            color="white"
-            style={styles.icon}
+          <Pressable
             onPress={() => {
               navigation.navigate("home");
-            }}
-          />
+            }}>
+            <MaterialIcons
+              name="arrow-back-ios"
+              size={18}
+              color={GlobalStyles.colors.iconColor}
+              style={styles.icon}
+            />
+          </Pressable>
+
           <View style={styles.search}>
             <SearchInput
               placeholder="Type Artist, Song or Lyrics"
@@ -72,7 +75,7 @@ export const SearchScreen = ({ navigation }) => {
         </View>
         <Text style={styles.artist}>Search By Artists</Text>
         <ArtistSearch />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {filterAlbum.length !== 0 && (
             <View style={styles.desc}>
               <Text style={styles.descTitle}>Album</Text>
@@ -120,7 +123,7 @@ export const SearchScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     padding: 15,
@@ -136,22 +139,6 @@ const styles = StyleSheet.create({
   search: {
     flex: 2,
     marginLeft: 20,
-  },
-  artist: {
-    color: "white",
-    fontSize: 11,
-    fontFamily: "Poppins400",
-  },
-  artwork: {
-    width: 55,
-    height: 55,
-    marginRight: 10,
-  },
-  track: {
-    color: "white",
-    fontSize: 13,
-    fontFamily: "Poppins500",
-    textTransform: "capitalize",
   },
   trackContainer: {
     flexDirection: "row",

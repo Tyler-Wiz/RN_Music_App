@@ -4,7 +4,8 @@ export const PlaylistData = [
     name: "ChopLife",
     imageUrl:
       "https://tooxclusive.com/wp-content/uploads/2022/10/Choplife-Playlist.webp",
-    artists: "Falz, Kizz Daniel, Omah Lay, Adekunle Gold, Crayon",
+    artists:
+      "Falz, Kizz Daniel, Omah Lay, Adekunle Gold, Crayon, Mayorkun, Burna Boy",
     updated: "16/09/2022",
   },
   {
@@ -12,7 +13,8 @@ export const PlaylistData = [
     name: "Workout",
     imageUrl:
       "https://tooxclusive.com/wp-content/uploads/2022/10/Workout-Playlist.webp",
-    artists: "Olamide, Zinoleesky, fireboy, Asake, Mayorkun",
+    artists:
+      "Olamide, Zinoleesky, fireboy, Asake, Mayorkun, Kizz Daniel, Young Jonn, Davido, Zinoleeksy",
     updated: "16/09/2022",
   },
   {
@@ -28,7 +30,7 @@ export const PlaylistData = [
     name: "Bedroom",
     imageUrl:
       "https://tooxclusive.com/wp-content/uploads/2022/10/Amapiano-Playlist.png",
-    artists: "Wande Coal, Fireboy, Wizkid, Davido, Tekno",
+    artists: "Wande Coal, Fireboy, Wizkid, Davido, Tekno, Omah Lay, Olamide",
     updated: "31/12/2020",
   },
   {
@@ -52,7 +54,8 @@ export const PlaylistData = [
     name: "AfroReggae",
     imageUrl:
       "https://tooxclusive.com/wp-content/uploads/2022/10/AfroReggae-Dancehall-Playlist.webp",
-    artists: "Timaya, patoranking, wizkid, ruger, king Perry ",
+    artists:
+      "Timaya, patoranking, wizkid, ruger, king Perry, Adekunle Gold, Terri",
     updated: "31/12/2020",
   },
   {

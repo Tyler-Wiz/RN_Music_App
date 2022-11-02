@@ -1,30 +1,27 @@
 import {
   StyleSheet,
-  Text,
   View,
   ScrollView,
   Image,
-  Pressable,
   Animated,
   SafeAreaView,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext } from "react";
 import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
-import { useContext } from "react";
 import { SongContext } from "../store/Song-Context";
 import { RenderSongs } from "../components/RenderSongs";
+import { GlobalStyles } from "../constants/color";
 
 export const PlaylistSongsScreen = ({ route }) => {
   const data = route.params.data;
   const name = route.params.name;
   const img = route.params.img;
-  const navigation = useNavigation();
 
   // Context //
   const songCtx = useContext(SongContext);
 
   let AnimatedHeaderValue = new Animated.Value(0);
-  const Header_Maximum_Height = 250;
+  const Header_Maximum_Height = 280;
   const Header_Minimum_Height = 30;
 
   const animateHeaderBackgroundColor = AnimatedHeaderValue.interpolate({
@@ -66,6 +63,7 @@ export const PlaylistSongsScreen = ({ route }) => {
         <View style={styles.container}>
           <ScrollView
             scrollEventThrottle={16}
+            showsVerticalScrollIndicator={false}
             onScroll={Animated.event(
               [
                 {
@@ -93,7 +91,7 @@ export const PlaylistSongsScreen = ({ route }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   wrapper: {
     flex: 1,

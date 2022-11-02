@@ -8,7 +8,7 @@ import {
   Pressable,
   Modal,
 } from "react-native";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { SongContext } from "../store/Song-Context";
 import { Description } from "../modules/common/Description";
 import { Feather } from "@expo/vector-icons";
@@ -17,17 +17,16 @@ import { Ionicons } from "@expo/vector-icons";
 import { RenderRemoveContent } from "../components/Bookmark/RenderRemoveContent";
 
 export const FavoriteScreen = ({ navigation }) => {
+  // Context Varible //
   const songCtx = useContext(SongContext);
-
+  // Toggling State//
   const [isvisible, setIsVisible] = useState(false);
   const [songId, setSongId] = useState("");
   const [artist, setArtist] = useState("");
-
+  // generate Date and time //
   let today = new Date();
   let now =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-
-  const favorite = true;
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -77,16 +76,18 @@ export const FavoriteScreen = ({ navigation }) => {
                 )}
               </View>
               <View>
-                <Feather
-                  name="more-horizontal"
-                  size={24}
-                  color="white"
+                <Pressable
                   onPress={() => {
                     setIsVisible(true);
                     setSongId(item.id);
                     setArtist(item.artist);
-                  }}
-                />
+                  }}>
+                  <Feather
+                    name="more-horizontal"
+                    size={24}
+                    color={GlobalStyles.colors.iconColor}
+                  />
+                </Pressable>
               </View>
             </View>
           ))}
@@ -110,7 +111,7 @@ export const FavoriteScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     padding: 15,
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
-    marginTop: "40%",
+    marginTop: "50%",
   },
   wrapper: {
     marginHorizontal: 10,
@@ -161,10 +162,10 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins300",
-    marginTop: 7,
+    marginTop: 5,
   },
   date: {
-    color: GlobalStyles.colors.secondaryText,
+    color: GlobalStyles.colors.primaryText,
     fontSize: 10,
     fontFamily: "Poppins500",
   },
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   modalWrapper: {
     height: "25%",
     width: "100%",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: GlobalStyles.colors.iconColor,
     borderRadius: 15,
   },
 });

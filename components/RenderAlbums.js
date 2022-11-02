@@ -32,8 +32,8 @@ export const RenderAlbums = ({ item, width, height, flex, bottom }) => {
             }}
           />
           <View>
-            <Text style={styles.artist}>{item[0].AlbumName}</Text>
-            <Text style={styles.track}>{item[0].artistName}</Text>
+            <Text style={styles.album}>{item[0].AlbumName}</Text>
+            <Text style={styles.artist}>{item[0].artistName}</Text>
           </View>
         </View>
       </Pressable>
@@ -46,15 +46,14 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginRight: 10,
   },
-  artist: {
+  album: {
     color: GlobalStyles.colors.primaryText,
-    fontSize: 13,
+    fontSize: 12,
     fontFamily: "Poppins500",
-    // width: "95%",
   },
-  track: {
+  artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins400",
   },
 });

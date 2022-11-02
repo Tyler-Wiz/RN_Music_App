@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { Artists } from "../../Data/data";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
 export const ArtistSearch = () => {
   const navigation = useNavigation();
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     padding: Platform.OS === "ios" ? 10 : 0,
   },
   container: {
-    borderColor: "#4c4c4c",
+    borderColor: GlobalStyles.colors.primaryText,
     borderWidth: 1,
     borderRadius: 10,
     marginVertical: 10,
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   artist: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins500",
     textTransform: "capitalize",

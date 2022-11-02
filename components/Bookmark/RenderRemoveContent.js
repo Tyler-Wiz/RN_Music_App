@@ -4,6 +4,7 @@ import { SongContext } from "../../store/Song-Context";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { GlobalStyles } from "../../constants/color";
 
 export const RenderRemoveContent = ({ id, setIsVisible, artist }) => {
   const songCtx = useContext(SongContext);
@@ -21,7 +22,7 @@ export const RenderRemoveContent = ({ id, setIsVisible, artist }) => {
           <MaterialCommunityIcons
             name="delete-forever"
             size={24}
-            color="black"
+            color={GlobalStyles.colors.primaryBg}
           />
           <Text style={styles.add}>Remove to favorites</Text>
         </Pressable>
@@ -36,7 +37,7 @@ export const RenderRemoveContent = ({ id, setIsVisible, artist }) => {
           <MaterialCommunityIcons
             name="account-music-outline"
             size={24}
-            color="black"
+            color={GlobalStyles.colors.primaryBg}
           />
           <Text style={styles.add}>Go to Artist</Text>
         </Pressable>
@@ -46,7 +47,11 @@ export const RenderRemoveContent = ({ id, setIsVisible, artist }) => {
         onPress={() => {
           setIsVisible(false);
         }}>
-        <Ionicons name="ios-close-outline" size={40} color="black" />
+        <Ionicons
+          name="ios-close-outline"
+          size={40}
+          color={GlobalStyles.colors.primaryBg}
+        />
       </Pressable>
     </View>
   );
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   add: {
-    color: "black",
+    color: GlobalStyles.colors.primaryBg,
     fontSize: 14,
     fontFamily: "Poppins500",
     marginLeft: 15,

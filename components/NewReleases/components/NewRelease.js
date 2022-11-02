@@ -7,6 +7,7 @@ import {
   Pressable,
   ActivityIndicator,
 } from "react-native";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Description } from "../../../modules/common/Description";
 import { GlobalStyles } from "../../../constants/color";
@@ -25,7 +26,7 @@ export const NewRelease = () => {
   return (
     <View style={styles.container}>
       <Description title="New Singles" size={15} margin={15} />
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {newRelease.map((item, i) => (
           <View key={i} style={styles.wrapper}>
             <Pressable
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
   },
   track: {
     color: GlobalStyles.colors.primaryText,
-    fontSize: 13,
-    fontFamily: "Poppins600",
+    fontSize: 12,
+    fontFamily: "Poppins500",
     textTransform: "capitalize",
   },
   artwork: {
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
   artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins400",
     width: "70%",
     textTransform: "capitalize",
   },

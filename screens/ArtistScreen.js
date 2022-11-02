@@ -8,13 +8,14 @@ import {
   Pressable,
   ActivityIndicator,
 } from "react-native";
+import React from "react";
 import { allSongsConfig } from "../modules/hooks/allSongs-config";
 import { ImgConfig } from "../modules/hooks/Img-Config";
 import { AlbumConfig } from "../components/Albums/AlbumConfig";
 import { GlobalStyles } from "../constants/color";
-import { MaterialIcons } from "@expo/vector-icons";
 import { RenderSongs } from "../components/RenderSongs";
 import { RenderAlbums } from "../components/RenderAlbums";
+import { PlaylistNavigation } from "../modules/common/PlaylistNavigation";
 
 export const ArtistScreen = ({ route, navigation }) => {
   // Data from Firebase //
@@ -46,26 +47,15 @@ export const ArtistScreen = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      <PlaylistNavigation name={artist} />
       <ScrollView>
         <View style={styles.container}>
-          <Pressable
-            onPress={() => {
-              navigation.navigate("home");
-            }}>
-            <MaterialIcons
-              name="arrow-back-ios"
-              size={18}
-              color="white"
-              style={styles.icon}
-            />
-          </Pressable>
           {image &&
             image.map((item, i) => (
               <View key={i} style={styles.imgContainer}>
                 <Image source={{ uri: item.url }} style={styles.image} />
               </View>
             ))}
-          <Text style={styles.artistName}>{artist}</Text>
           <View style={styles.descContainer}>
             <Text style={styles.description}>Popular Songs</Text>
             <Pressable
@@ -89,7 +79,7 @@ export const ArtistScreen = ({ route, navigation }) => {
           {featuredAlbums.length === 0 ? null : (
             <Text style={styles.description}>Albums</Text>
           )}
-          <ScrollView horizontal>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {featuredAlbums &&
               featuredAlbums.map((item, i) => (
                 <View key={i}>
@@ -112,7 +102,7 @@ export const ArtistScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     paddingHorizontal: 15,
@@ -135,7 +125,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100 / 2,
-    marginVertical: 10,
+    marginBottom: 30,
   },
   descContainer: {
     flexDirection: "row",

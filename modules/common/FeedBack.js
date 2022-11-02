@@ -8,6 +8,7 @@ import {
 import { useContext } from "react";
 import { SongContext } from "../../store/Song-Context";
 import { MaterialIcons } from "@expo/vector-icons";
+import { GlobalStyles } from "../../constants/color";
 
 export const FeedBack = () => {
   const { width, height } = useWindowDimensions();
@@ -26,7 +27,11 @@ export const FeedBack = () => {
               left: width / 4.5,
             },
           ]}>
-          <MaterialIcons name="queue-music" size={30} color="black" />
+          <MaterialIcons
+            name="queue-music"
+            size={30}
+            color={GlobalStyles.colors.lightGrey}
+          />
           <Text style={styles.add}>Added To Favorites</Text>
         </Animated.View>
       ) : songCtx.removedToFavorite ? (
@@ -40,7 +45,11 @@ export const FeedBack = () => {
               left: width / 5,
             },
           ]}>
-          <MaterialIcons name="highlight-remove" size={30} color="black" />
+          <MaterialIcons
+            name="highlight-remove"
+            size={30}
+            color={GlobalStyles.colors.lightGrey}
+          />
           <Text style={styles.add}>Removed From Favorites</Text>
         </Animated.View>
       ) : null}
@@ -52,7 +61,7 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     zIndex: 9999999,
-    backgroundColor: "#CCCCCC",
+    backgroundColor: GlobalStyles.colors.iconColor,
     paddingHorizontal: 30,
     paddingVertical: 15,
     borderRadius: 10,
@@ -60,8 +69,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   add: {
-    color: "black",
-    fontSize: 10,
+    color: GlobalStyles.colors.lightGrey,
+    fontSize: 11,
     fontFamily: "Poppins500",
     textAlign: "center",
     marginTop: 5,

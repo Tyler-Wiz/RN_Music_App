@@ -36,7 +36,7 @@ export const MyTabs = () => {
         },
         tabBarStyle: {
           paddingBottom: Platform.OS === "ios" ? 25 : 0,
-          backgroundColor: "black",
+          backgroundColor: GlobalStyles.colors.tabColor,
         },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;

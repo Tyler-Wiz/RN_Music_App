@@ -5,16 +5,17 @@ import {
   ScrollView,
   Modal,
 } from "react-native";
+import React, { useContext, useState, useEffect } from "react";
 import { TrackNavigation } from "../modules/common/TrackNavigation";
 import RenderLyrics from "../components/RenderLyrics";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { LogBox } from "react-native";
 LogBox.ignoreLogs(["Warning: ..."]);
 LogBox.ignoreAllLogs();
-import { useContext, useState, useEffect } from "react";
 import { SongContext } from "../store/Song-Context";
 import { RenderBookmarkContent } from "../components/Bookmark/RenderBookmarkContent";
 import { FeedBack } from "../modules/common/Feedback";
+import { GlobalStyles } from "../constants/color";
 
 export const TrackScreen = ({ route }) => {
   //Track params//
@@ -76,7 +77,7 @@ export const TrackScreen = ({ route }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     paddingHorizontal: 15,
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   modalWrapper: {
     height: "32%",
     width: "100%",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: GlobalStyles.colors.iconColor,
     borderRadius: 15,
   },
 });

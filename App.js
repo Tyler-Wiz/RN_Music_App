@@ -44,7 +44,7 @@ export default function App() {
   return (
     <SongProvider>
       <NavigationContainer onReady={onLayoutRootView}>
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
         <MyStack />
         <FeedBack />
       </NavigationContainer>

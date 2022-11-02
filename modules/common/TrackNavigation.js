@@ -9,16 +9,17 @@ export const TrackNavigation = ({ setIsVisible, track }) => {
 
   return (
     <View style={styles.container}>
-      <MaterialIcons
-        name="keyboard-arrow-down"
-        size={35}
-        color="white"
-        style={styles.icon}
+      <Pressable
         onPress={() => {
-          0;
           navigation.goBack();
-        }}
-      />
+        }}>
+        <MaterialIcons
+          name="keyboard-arrow-down"
+          size={30}
+          color={GlobalStyles.colors.iconColor}
+          style={styles.icon}
+        />
+      </Pressable>
       <Text style={styles.title}>{track}</Text>
       <Pressable
         onPress={() => {
@@ -28,7 +29,7 @@ export const TrackNavigation = ({ setIsVisible, track }) => {
           <Feather
             name="more-horizontal"
             size={20}
-            color={GlobalStyles.colors.primaryText}
+            color={GlobalStyles.colors.iconColor}
           />
         </View>
       </Pressable>
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   title: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 13,
     fontFamily: "Poppins600",
   },

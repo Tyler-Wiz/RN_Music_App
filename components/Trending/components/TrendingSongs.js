@@ -63,7 +63,7 @@ export const TrendingSongs = ({ active }) => {
           <Ionicons name="trending-up-sharp" size={25} color="red" />
         </View>
       </View>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <FlatList
           data={trending}
           renderItem={renderList}
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   track: {
     color: GlobalStyles.colors.primaryText,
     fontSize: 12,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins500",
     marginRight: 10,
     textTransform: "capitalize",
   },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   artist: {
     color: GlobalStyles.colors.secondaryText,
     fontSize: 11,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins400",
     marginRight: 10,
     textTransform: "capitalize",
   },

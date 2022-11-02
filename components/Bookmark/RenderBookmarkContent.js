@@ -4,6 +4,7 @@ import { SongContext } from "../../store/Song-Context";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/color";
 
 export const RenderBookmarkContent = ({
   artist,
@@ -44,7 +45,11 @@ export const RenderBookmarkContent = ({
           onPress={() => {
             setIsVisible(false);
           }}>
-          <Ionicons name="ios-close-outline" size={35} color="black" />
+          <Ionicons
+            name="ios-close-outline"
+            size={35}
+            color={GlobalStyles.colors.lightGrey}
+          />
         </Pressable>
       </View>
       {bookmarkedId === id ? (
@@ -55,7 +60,11 @@ export const RenderBookmarkContent = ({
             songCtx.removeSong();
             setIsVisible(false);
           }}>
-          <Ionicons name="md-heart-outline" size={24} color="black" />
+          <Ionicons
+            name="md-heart-outline"
+            size={24}
+            color={GlobalStyles.colors.lightGrey}
+          />
           <Text style={styles.add}>Remove to favorites</Text>
         </Pressable>
       ) : (
@@ -65,14 +74,18 @@ export const RenderBookmarkContent = ({
             songCtx.AddedModal();
             AddToFavorite();
           }}>
-          <Ionicons name="md-heart-outline" size={24} color="black" />
+          <Ionicons
+            name="md-heart-outline"
+            size={24}
+            color={GlobalStyles.colors.lightGrey}
+          />
           <Text style={styles.add}>Add to favorites</Text>
         </Pressable>
       )}
       <Pressable
         style={styles.bookmarkText}
         onPress={() => {
-          navigation.goBack();
+          navigation.pop();
           navigation.navigate("artist", {
             artist: artist,
           });
@@ -81,7 +94,7 @@ export const RenderBookmarkContent = ({
         <MaterialCommunityIcons
           name="account-music-outline"
           size={24}
-          color="black"
+          color={GlobalStyles.colors.lightGrey}
         />
         <Text style={styles.add}>Go to Artist</Text>
       </Pressable>
@@ -109,19 +122,19 @@ const styles = StyleSheet.create({
     height: 45,
   },
   track: {
-    color: "black",
+    color: GlobalStyles.colors.lightGrey,
     fontSize: 11,
     fontFamily: "Poppins500",
     textAlign: "center",
   },
   artist: {
-    color: "black",
+    color: GlobalStyles.colors.lightGrey,
     fontSize: 11,
     fontFamily: "Poppins400",
     textAlign: "center",
   },
   add: {
-    color: "black",
+    color: GlobalStyles.colors.lightGrey,
     fontSize: 14,
     fontFamily: "Poppins500",
     marginLeft: 15,

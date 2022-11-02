@@ -13,10 +13,10 @@ import { Feather } from "@expo/vector-icons";
 import { RenderBookmarkContent } from "./Bookmark/RenderBookmarkContent";
 import { GlobalStyles } from "../constants/color";
 
-export const RenderSongs = ({ item }) => {
+export const RenderSongs = ({ item, position }) => {
   const navigation = useNavigation();
   const [isvisible, setIsVisible] = useState(false);
-
+  let length = 35;
   return (
     <View>
       <View style={styles.trackContainer}>
@@ -32,20 +32,27 @@ export const RenderSongs = ({ item }) => {
               image: item.artwork,
             });
           }}>
+          {position && <Text style={styles.position}>{position}</Text>}
           <Image source={{ uri: item.artwork }} style={styles.artwork} />
           <View>
-            <Text style={styles.track}>{item.trackName}</Text>
-            <Text style={styles.artist}>{item.artistName}</Text>
+            <Text style={styles.track}>
+              {item.trackName.length > length
+                ? item.trackName.trimStart().substring(0, length - 3) + "..."
+                : item.trackName.trimStart()}
+            </Text>
+            <Text style={styles.artist}>{item.artistName.trimStart()}</Text>
           </View>
         </TouchableOpacity>
-        <Feather
-          name="more-horizontal"
-          size={24}
-          color="white"
+        <Pressable
           onPress={() => {
             setIsVisible(true);
-          }}
-        />
+          }}>
+          <Feather
+            name="more-horizontal"
+            size={24}
+            color={GlobalStyles.colors.primaryText}
+          />
+        </Pressable>
       </View>
       <Modal animationType="slide" transparent visible={isvisible}>
         <View style={styles.modalContainer}>
@@ -78,10 +85,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginVertical: 6,
   },
+  position: {
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 14,
+    fontFamily: "Poppins700",
+    marginRight: 10,
+    width: 20,
+  },
   track: {
     color: GlobalStyles.colors.primaryText,
-    fontSize: 13,
+    fontSize: 12,
     fontFamily: "Poppins500",
+    textTransform: "capitalize",
   },
   artwork: {
     width: 50,
@@ -91,8 +106,9 @@ const styles = StyleSheet.create({
   },
   artist: {
     color: GlobalStyles.colors.secondaryText,
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: "Poppins400",
+    textTransform: "capitalize",
   },
   icon: {
     marginRight: 2,
@@ -108,9 +124,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modalWrapper: {
-    height: "40%",
+    height: "35%",
     width: "100%",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: GlobalStyles.colors.iconColor,
     borderRadius: 15,
   },
 });

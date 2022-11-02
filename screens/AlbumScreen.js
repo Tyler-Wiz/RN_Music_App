@@ -8,6 +8,7 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
+import React from "react";
 import { GlobalStyles } from "../constants/color";
 import { AlbumLyricsConfig } from "../components/Albums/AlbumLyrics-config";
 import { SearchNavigation } from "../modules/common/SearchNavigation";
@@ -18,6 +19,7 @@ const AlbumScreen = ({ route, navigation }) => {
   const featuredImg = route.params.featuredImg;
   const albumName = route.params.albumName;
   const artistName = route.params.artistName;
+  // Database Returns Lyrics for Each Album by ID //
   const [lyrics, isLoading] = AlbumLyricsConfig(itemId);
 
   return (
@@ -82,7 +84,7 @@ export default AlbumScreen;
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: GlobalStyles.colors.primaryBg,
   },
   container: {
     padding: 15,
@@ -118,9 +120,9 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   album: {
-    color: "white",
+    color: GlobalStyles.colors.primaryText,
     fontSize: 16,
-    fontFamily: "Poppins600",
+    fontFamily: "Poppins500",
     marginVertical: 3,
   },
   track: {

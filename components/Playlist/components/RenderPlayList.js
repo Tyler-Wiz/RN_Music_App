@@ -1,3 +1,4 @@
+import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../../../constants/color";
@@ -19,7 +20,7 @@ export const RenderPlayList = ({ playlist, data }) => {
       <View style={styles.container}>
         <Text style={styles.track}>{playlist.name}</Text>
         <Text style={styles.artists}>{playlist.artists}</Text>
-        <Text style={styles.updated}>Updated - {playlist.updated}</Text>
+        {/* <Text style={styles.updated}>Updated - {playlist.updated}</Text> */}
       </View>
     </TouchableOpacity>
   );
@@ -31,30 +32,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 7,
   },
-  image: { width: 70, height: 70, marginRight: 10, borderRadius: 5 },
+  image: { width: 60, height: 60, marginRight: 10, borderRadius: 5 },
   container: {
-    paddingVertical: 8,
     width: "70%",
     borderBottomWidth: 0.2,
     borderBottomColor: GlobalStyles.colors.secondaryText,
+    paddingVertical: 3,
   },
   track: {
-    color: "white",
-    fontSize: 15,
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 13,
     fontFamily: "Poppins600",
     textTransform: "capitalize",
-  },
-  updated: {
-    color: GlobalStyles.colors.secondaryText,
-    fontSize: 10,
-    fontFamily: "Poppins400",
-    textTransform: "capitalize",
+    marginBottom: 4,
   },
   artists: {
     color: GlobalStyles.colors.secondaryText,
-    fontSize: 11,
-    fontFamily: "Poppins400",
+    fontSize: 10,
+    fontFamily: "Poppins300",
     textTransform: "capitalize",
-    marginVertical: 3,
   },
 });

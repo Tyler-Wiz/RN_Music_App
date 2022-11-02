@@ -1,6 +1,7 @@
 import { StyleSheet, Text, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { GlobalStyles } from "../../constants/color";
 
 export const PlaylistNavigation = ({ name }) => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ export const PlaylistNavigation = ({ name }) => {
         <MaterialIcons
           name="arrow-back-ios"
           size={18}
-          color="white"
+          color={GlobalStyles.colors.primaryText}
           style={styles.icon}
         />
       </Pressable>
@@ -28,16 +29,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: 20,
-    paddingHorizontal: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
   },
   icon: {
     marginRight: 10,
   },
   title: {
-    color: "white",
-    fontSize: 20,
-    fontFamily: "Poppins600",
+    color: GlobalStyles.colors.primaryText,
+    fontSize: 14,
+    fontFamily: "Poppins700",
     textTransform: "capitalize",
     marginRight: 10,
   },
